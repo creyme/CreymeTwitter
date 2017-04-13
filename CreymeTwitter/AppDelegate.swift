@@ -58,18 +58,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // GET USER INFO
             twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
-                print("account\(response ?? String())")
+                
                 
                 // Print user name
-                let user = response as? NSDictionary
-                print("name: \(user?["name"] ?? String())")
+                let userDictionary = response as? NSDictionary
+                let user = User(dictionary: userDictionary!)
+                
+                print("name: \(user.name!)")
+                print("screenname: \(user.screenname!)")
+                print("profile url: \(user.profileUrl!)")
+                print("description: \(user.tagline!)")
+                
+                
                 
                 
                 // GET USER TWEETS
                 twitterClient?.get("1.1/statuses/user_timeline.json", parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
-                let tweets = response as! [NSDictionary]
+                
+                    let dictionaries = response as! [NSDictionary]
+                    
+                    let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+                    
                     for tweet in tweets {
-                        print("\(tweet["text"]!)")
+                        print("\(tweet.text!)")
                     }
                 }, failure: { (task: URLSessionDataTask?, error: Error) in
                     print("error getting tweets")

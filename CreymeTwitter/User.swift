@@ -10,15 +10,15 @@ import UIKit
 
 class User: NSObject {
 
-// DESERIALIZATION ********************************
+
     
-    // PROPERTIES: Variable for User details
+    // STEP 1: ENUMERATE PROPERTIES: Variables for User details
     var name: String?
     var screenname: String?
     var profileUrl: NSURL?
     var tagline: String?
     
-    // Initialize value for user details or populate
+    // STEP 2: DESERIALIZATION: Initialize value for user details or populate
     init(dictionary: NSDictionary) {
         
         name = dictionary["name"] as? String
