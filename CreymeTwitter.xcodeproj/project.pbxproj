@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C038B941E9FFF870033FBF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C038B931E9FFF870033FBF2 /* User.swift */; };
+		4C038B961E9FFFA70033FBF2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C038B951E9FFFA70033FBF2 /* Tweet.swift */; };
 		4CC0DEBE1E9F3A2900455DFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0DEBD1E9F3A2900455DFE /* AppDelegate.swift */; };
 		4CC0DEC01E9F3A2900455DFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0DEBF1E9F3A2900455DFE /* ViewController.swift */; };
 		4CC0DEC31E9F3A2900455DFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0DEC11E9F3A2900455DFE /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C038B931E9FFF870033FBF2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4C038B951E9FFFA70033FBF2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		4CC0DEBA1E9F3A2900455DFE /* CreymeTwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreymeTwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0DEBD1E9F3A2900455DFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC0DEBF1E9F3A2900455DFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C038B911E9FFF410033FBF2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		4C038B921E9FFF490033FBF2 /* MODELS */ = {
+			isa = PBXGroup;
+			children = (
+				4C038B931E9FFF870033FBF2 /* User.swift */,
+				4C038B951E9FFFA70033FBF2 /* Tweet.swift */,
+			);
+			name = MODELS;
+			sourceTree = "<group>";
+		};
 		4CC0DEB11E9F3A2900455DFE = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +92,8 @@
 		4CC0DEBC1E9F3A2900455DFE /* CreymeTwitter */ = {
 			isa = PBXGroup;
 			children = (
-				4CC0DEBD1E9F3A2900455DFE /* AppDelegate.swift */,
+				4C038B921E9FFF490033FBF2 /* MODELS */,
+				4C038B911E9FFF410033FBF2 /* API */,
 				4CEFEB9E1E9F3CAE00D4D07C /* VIEWCONTROLLERS */,
 				4CC0DEC11E9F3A2900455DFE /* Main.storyboard */,
 				4CC0DEC41E9F3A2900455DFE /* Assets.xcassets */,
@@ -85,6 +106,7 @@
 		4CEFEB9E1E9F3CAE00D4D07C /* VIEWCONTROLLERS */ = {
 			isa = PBXGroup;
 			children = (
+				4CC0DEBD1E9F3A2900455DFE /* AppDelegate.swift */,
 				4CC0DEBF1E9F3A2900455DFE /* ViewController.swift */,
 				4CEFEB9C1E9F3C9B00D4D07C /* LogInViewController.swift */,
 			);
@@ -223,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C038B941E9FFF870033FBF2 /* User.swift in Sources */,
+				4C038B961E9FFFA70033FBF2 /* Tweet.swift in Sources */,
 				4CC0DEC01E9F3A2900455DFE /* ViewController.swift in Sources */,
 				4CC0DEBE1E9F3A2900455DFE /* AppDelegate.swift in Sources */,
 				4CEFEB9D1E9F3C9B00D4D07C /* LogInViewController.swift in Sources */,

@@ -48,15 +48,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         
+        // AUTHENTICATION
         let twitterClient = BDBOAuth1SessionManager(baseURL: URL(string: "https://api.twitter.com")!, consumerKey: "AN5GCcUKmIERIBOlE3J1W7n2Q", consumerSecret: "KwlyZaITvbfvxYniVpBtqH8mQM1vWDhBezd530lbGgELHebvqy")
         
-        
+        // REQUEST TOKEN
         twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential?) in
             
             print("I got the token")
+            
+            // GET USER INFO
             twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
                 print("account\(response ?? String())")
                 
+                // Print user name
+                let user = response as? NSDictionary
+                print("name: \(user?["name"] ?? String())")
+                
+                
+                // GET USER TWEETS
                 twitterClient?.get("1.1/statuses/user_timeline.json", parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
                 let tweets = response as! [NSDictionary]
                     for tweet in tweets {
@@ -65,10 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }, failure: { (task: URLSessionDataTask?, error: Error) in
                     print("error getting tweets")
                 })
-                
-                let user = response as? NSDictionary
-                print("name: \(user?["name"] ?? String())")
-                
+
                 
             }, failure: { (task:URLSessionDataTask?, error:Error) in
                 print("error: \(error.localizedDescription)")
