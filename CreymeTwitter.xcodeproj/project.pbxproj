@@ -12,6 +12,8 @@
 		4CC0DEC31E9F3A2900455DFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0DEC11E9F3A2900455DFE /* Main.storyboard */; };
 		4CC0DEC51E9F3A2900455DFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0DEC41E9F3A2900455DFE /* Assets.xcassets */; };
 		4CC0DEC81E9F3A2900455DFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0DEC61E9F3A2900455DFE /* LaunchScreen.storyboard */; };
+		4CEFEB9D1E9F3C9B00D4D07C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFEB9C1E9F3C9B00D4D07C /* LogInViewController.swift */; };
+		4FE4DAC171B883B62308A35F /* Pods_CreymeTwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8742A7AB7C70F22A0C412 /* Pods_CreymeTwitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		4CC0DEC41E9F3A2900455DFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CC0DEC71E9F3A2900455DFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CC0DEC91E9F3A2900455DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CEFEB9C1E9F3C9B00D4D07C /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A210D691D0DDCFF7C5A8C557 /* Pods-CreymeTwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreymeTwitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CreymeTwitter/Pods-CreymeTwitter.release.xcconfig"; sourceTree = "<group>"; };
+		E5457B9E206532F9B590067D /* Pods-CreymeTwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreymeTwitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CreymeTwitter/Pods-CreymeTwitter.debug.xcconfig"; sourceTree = "<group>"; };
+		F0F8742A7AB7C70F22A0C412 /* Pods_CreymeTwitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreymeTwitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FE4DAC171B883B62308A35F /* Pods_CreymeTwitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3662F681D48AC82DE3AC6EEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5457B9E206532F9B590067D /* Pods-CreymeTwitter.debug.xcconfig */,
+				A210D691D0DDCFF7C5A8C557 /* Pods-CreymeTwitter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4CC0DEB11E9F3A2900455DFE = {
 			isa = PBXGroup;
 			children = (
 				4CC0DEBC1E9F3A2900455DFE /* CreymeTwitter */,
 				4CC0DEBB1E9F3A2900455DFE /* Products */,
+				3662F681D48AC82DE3AC6EEE /* Pods */,
+				FFC6C6798D818F388B23357B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +73,30 @@
 			isa = PBXGroup;
 			children = (
 				4CC0DEBD1E9F3A2900455DFE /* AppDelegate.swift */,
-				4CC0DEBF1E9F3A2900455DFE /* ViewController.swift */,
+				4CEFEB9E1E9F3CAE00D4D07C /* VIEWCONTROLLERS */,
 				4CC0DEC11E9F3A2900455DFE /* Main.storyboard */,
 				4CC0DEC41E9F3A2900455DFE /* Assets.xcassets */,
 				4CC0DEC61E9F3A2900455DFE /* LaunchScreen.storyboard */,
 				4CC0DEC91E9F3A2900455DFE /* Info.plist */,
 			);
 			path = CreymeTwitter;
+			sourceTree = "<group>";
+		};
+		4CEFEB9E1E9F3CAE00D4D07C /* VIEWCONTROLLERS */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0DEBF1E9F3A2900455DFE /* ViewController.swift */,
+				4CEFEB9C1E9F3C9B00D4D07C /* LogInViewController.swift */,
+			);
+			name = VIEWCONTROLLERS;
+			sourceTree = "<group>";
+		};
+		FFC6C6798D818F388B23357B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0F8742A7AB7C70F22A0C412 /* Pods_CreymeTwitter.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CC0DECC1E9F3A2900455DFE /* Build configuration list for PBXNativeTarget "CreymeTwitter" */;
 			buildPhases = (
+				B885A7A65E07CEE8E7DF9141 /* [CP] Check Pods Manifest.lock */,
 				4CC0DEB61E9F3A2900455DFE /* Sources */,
 				4CC0DEB71E9F3A2900455DFE /* Frameworks */,
 				4CC0DEB81E9F3A2900455DFE /* Resources */,
+				F052187C1171A2CF2D48413E /* [CP] Embed Pods Frameworks */,
+				24E94800DA7F6E687B2A8349 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +170,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24E94800DA7F6E687B2A8349 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CreymeTwitter/Pods-CreymeTwitter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B885A7A65E07CEE8E7DF9141 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F052187C1171A2CF2D48413E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CreymeTwitter/Pods-CreymeTwitter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CC0DEB61E9F3A2900455DFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +225,7 @@
 			files = (
 				4CC0DEC01E9F3A2900455DFE /* ViewController.swift in Sources */,
 				4CC0DEBE1E9F3A2900455DFE /* AppDelegate.swift in Sources */,
+				4CEFEB9D1E9F3C9B00D4D07C /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +346,7 @@
 		};
 		4CC0DECD1E9F3A2900455DFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5457B9E206532F9B590067D /* Pods-CreymeTwitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NARHJ4JYLS;
@@ -272,6 +360,7 @@
 		};
 		4CC0DECE1E9F3A2900455DFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A210D691D0DDCFF7C5A8C557 /* Pods-CreymeTwitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NARHJ4JYLS;
@@ -302,6 +391,7 @@
 				4CC0DECE1E9F3A2900455DFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
