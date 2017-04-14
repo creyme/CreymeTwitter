@@ -46,58 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(url.description)
         
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
         
-        // AUTHENTICATION
-        let twitterClient = BDBOAuth1SessionManager(baseURL: URL(string: "https://api.twitter.com")!, consumerKey: "AN5GCcUKmIERIBOlE3J1W7n2Q", consumerSecret: "KwlyZaITvbfvxYniVpBtqH8mQM1vWDhBezd530lbGgELHebvqy")
+        TwitterClient.sharedInstance?.handleOpenUrl(url: url as NSURL)
         
-        // REQUEST TOKEN
-        twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential?) in
-            
-            print("I got the token")
-            
-            // GET USER INFO
-            twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
-                
-                
-                // Print user name
-                let userDictionary = response as? NSDictionary
-                let user = User(dictionary: userDictionary!)
-                
-                print("name: \(user.name!)")
-                print("screenname: \(user.screenname!)")
-                print("profile url: \(user.profileUrl!)")
-                print("description: \(user.tagline!)")
-                
-                
-                
-                
-                // GET USER TWEETS
-                twitterClient?.get("1.1/statuses/user_timeline.json", parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
-                
-                    let dictionaries = response as! [NSDictionary]
-                    
-                    let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-                    
-                    for tweet in tweets {
-                        print("\(tweet.text!)")
-                    }
-                }, failure: { (task: URLSessionDataTask?, error: Error) in
-                    print("error getting tweets")
-                })
-
-                
-            }, failure: { (task:URLSessionDataTask?, error:Error) in
-                print("error: \(error.localizedDescription)")
-            })
-            
-        }, failure: { (error: Error?) in
-            print("error: \(error?.localizedDescription ?? String())")
-        })
+ 
             return true
     }
-    
-    
 
 }
 
