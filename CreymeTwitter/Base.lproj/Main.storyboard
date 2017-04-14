@@ -32,9 +32,61 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="XK2-M0-x0R" kind="presentation" identifier="loginSegue" id="iFB-Xz-eu3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="W42-r6-zWm">
+            <objects>
+                <viewController id="pkz-Hf-xFT" customClass="TweetsViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EhR-19-A7Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="9rq-AQ-wLd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JSZ-v7-n0K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Sf-MA-drF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9rq-AQ-wLd" firstAttribute="top" secondItem="6Sf-MA-drF" secondAttribute="bottom" id="ISc-MK-DY1"/>
+                            <constraint firstItem="6Sf-MA-drF" firstAttribute="leading" secondItem="JSZ-v7-n0K" secondAttribute="leading" id="ITP-eL-Nia"/>
+                            <constraint firstAttribute="trailing" secondItem="6Sf-MA-drF" secondAttribute="trailing" id="Qmt-M9-yXr"/>
+                            <constraint firstItem="6Sf-MA-drF" firstAttribute="top" secondItem="JSZ-v7-n0K" secondAttribute="top" id="mvS-YL-r98"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qv2-mB-gXI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQZ-Wx-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1848.8" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yMt-Fp-BzD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XK2-M0-x0R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PTD-bk-u9f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pkz-Hf-xFT" kind="relationship" relationship="rootViewController" id="Rnc-Gp-EQc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPw-xZ-tS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911" y="139"/>
         </scene>
     </scenes>
 </document>

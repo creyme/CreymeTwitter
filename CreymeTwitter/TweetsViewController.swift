@@ -1,22 +1,34 @@
 //
-//  LogInViewController.swift
+//  TweetsViewController.swift
 //  CreymeTwitter
 //
-//  Created by CRISTINA MACARAIG on 4/12/17.
+//  Created by CRISTINA MACARAIG on 4/13/17.
 //  Copyright © 2017 creyme. All rights reserved.
 //
 
 import UIKit
-import BDBOAuth1Manager
 
+class TweetsViewController: UIViewController {
 
-
-class LogInViewController: UIViewController {
-
+    
+    // VARIABLES
+    var tweets: [Tweet]!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
+            
+            self.tweets = tweets
+            
+            for tweet in tweets {
+                print (tweet.text!)
+            }
+            
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,25 +46,5 @@ class LogInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func onLoginButton(_ sender: Any) {
-        
-        TwitterClient.sharedInstance?.login(success: {
-            print("wow, login success!")
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            
-            
-        }) { (error) in
-            print("error: \(error.localizedDescription)")
-        }
-        
-       
-        
-        
-    }
-    
-    
-    
-    
 
 }
