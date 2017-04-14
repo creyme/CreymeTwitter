@@ -55,23 +55,28 @@ class TwitterClient: BDBOAuth1SessionManager {
                          requestToken: requestToken,
                          success: { (accessToken:BDBOAuth1Credential?) in
                                     
-                                    print("I got the token")
-                                    self.loginSuccess?()
+                            print("I got the token")
                             
+                            self.currentAccount(success: { (user:User) in
+                                
+                                User.currentUser = user
+                                self.loginSuccess?()
+                                
+                            }, failure: { (error: NSError) in
+                                self.loginFailure?(error)
+                            })
+                      
         }, failure: { (error: Error?) in
             
-                                    print("error: \(error?.localizedDescription ?? String())")
-                                    self.loginFailure?(error! as NSError)
-            
-        })
-        
-        
+                            print("error: \(error?.localizedDescription ?? String())")
+                            self.loginFailure?(error! as NSError)
+        })    
     }
     
     
     
     // GET USER INFO
-    func currentAccount() {
+    func currentAccount(success: @escaping (User) -> (), failure: @escaping (NSError) -> ()) {
         
         
         get("1.1/account/verify_credentials.json",
@@ -82,6 +87,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             // Get response
             let userDictionary = response as? NSDictionary
             let user = User(dictionary: userDictionary!)
+                
+                success(user)
             
             print("name: \(user.name!)")
             print("screenname: \(user.screenname!)")
@@ -89,6 +96,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("description: \(user.tagline!)")
             
         }, failure: { (task:URLSessionDataTask?, error:Error) in
+            failure(error as NSError)
+            
             print("error: \(error.localizedDescription)")
         })
     }
