@@ -35,7 +35,10 @@ class TweetsCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             
-            //userFullNameLabel.text =
+            userFullNameLabel.text = tweet.ownerName
+            tweetTextLabel.text = tweet.text
+            
+            
             
         }
         
@@ -45,7 +48,10 @@ class TweetsCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        profileImageView.layer.cornerRadius = 4
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,6 +16,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // VARIABLES
     var tweets: [Tweet]!
+    var tweetArray = [Tweet]()
     var tweetnum = 0
     
     
@@ -28,21 +30,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         
 
-        // LOAD TWEETS
-        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
-            
-            self.tweets = tweets
-            
-            for tweet in tweets {
-                self.tweetnum += 1
-                print ("Tweet: \(self.tweetnum) \(tweet.text!)")
-                print ("By: \(tweet.ownerName!)")
-            }
-            self.tableView.reloadData()
-            
-        }, failure: { (error) in
-            print(error.localizedDescription)
-        })
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,12 +63,34 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
+        
+        // LOAD TWEETS
+        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
+            
+            self.tweets = tweets
+            
+            cell.tweet = self.tweets[indexPath.row]
+            
+            for tweet in tweets {
+                self.tweetnum += 1
+                print ("Tweet: \(self.tweetnum) \(tweet.text!)")
+                print ("By: \(tweet.ownerName!)")
+            }
+            self.tableView.reloadData()
+            
+            
+            
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+        
+        
         
         
         

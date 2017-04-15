@@ -15,6 +15,7 @@ class Tweet: NSObject {
     var ownerName: String?
     var ownerScreenName: String?
     var profileImage: URL?
+    var textId: String?
     var text: String?
     var timestamp: Date?
     var isretweeted: Bool = false
@@ -29,24 +30,27 @@ class Tweet: NSObject {
     init(dictionary: NSDictionary) {
         
         tweetOwner = (dictionary["user"] as? NSDictionary)!
-        ownerName = (tweetOwner.value(forKeyPath: "name") as! String)
+        ownerName = tweetOwner.value(forKeyPath: "name") as? String
+        ownerScreenName = dictionary["screen_name"] as? String
         
+        textId = dictionary["id"] as? String
         text = dictionary["text"] as? String
-        
-        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        
-        favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
         
         let timestampString = dictionary["created_at"] as? String
         
         if let timestampString = timestampString {
-            
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
-            
         }
- }
+        
+        isretweeted = (dictionary["retweeted"] as? Bool)!
+        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
+        
+        isfavorite = (dictionary["favorited"] as? Bool)!
+        favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
+        
+         }
     
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {

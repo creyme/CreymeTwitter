@@ -75,8 +75,9 @@
                                                         <constraint firstAttribute="height" constant="16" id="yto-cm-BjQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
                                                     <rect key="frame" x="8" y="26" width="48" height="48"/>
+                                                    <color key="backgroundColor" red="0.33267149329185486" green="0.67360633611679077" blue="0.93191498517990112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="4MZ-sm-lpa"/>
                                                         <constraint firstAttribute="height" constant="48" id="pps-Ij-aId"/>
@@ -97,7 +98,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="14h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQ1-ey-kRF">
                                                     <rect key="frame" x="346" y="30" width="21" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are excited to be partnering with @int" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0A5-rQ-CVi">
@@ -241,7 +242,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Twitter_logo_blue_48.png" width="48" height="48"/>
+        <image name="Twitter_logo_white_48.png" width="48" height="48"/>
         <image name="like-action.png" width="54" height="72"/>
         <image name="reply-action_0.png" width="65" height="72"/>
         <image name="retweet-action.png" width="75" height="72"/>
