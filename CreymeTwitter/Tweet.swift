@@ -11,13 +11,25 @@ import UIKit
 class Tweet: NSObject {
     
     // STEP 1: ENUMERATE PROPERTIES: Variables for User details
+    var tweetOwner = NSDictionary()
+    var ownerName: String?
+    var ownerScreenName: String?
+    var profileImage: URL?
     var text: String?
     var timestamp: Date?
+    var isretweeted: Bool = false
     var retweetCount: Int = 0
+    var isfavorite: Bool = false
     var favoritesCount: Int = 0
+    var replyCount: Int = 0
+    
+    
     
     // STEP 2: DESERIALIZATION: Initialize value for user details or populate
     init(dictionary: NSDictionary) {
+        
+        tweetOwner = (dictionary["user"] as? NSDictionary)!
+        ownerName = (tweetOwner.value(forKeyPath: "name") as! String)
         
         text = dictionary["text"] as? String
         

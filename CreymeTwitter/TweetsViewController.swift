@@ -8,28 +8,37 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // OUTLETS
-    
-    
-    
-    
+    @IBOutlet weak var tableView: UITableView!
+
     // VARIABLES
     var tweets: [Tweet]!
     var tweetnum = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TABLEVIEW SETTINGS
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
 
+        // LOAD TWEETS
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
             
             self.tweets = tweets
             
             for tweet in tweets {
                 self.tweetnum += 1
-                print ("tweet \(self.tweetnum) \(tweet.text!)")
+                print ("Tweet: \(self.tweetnum) \(tweet.text!)")
+                print ("By: \(tweet.ownerName!)")
             }
+            self.tableView.reloadData()
             
         }, failure: { (error) in
             print(error.localizedDescription)
@@ -41,12 +50,14 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // LOGOUT
     @IBAction func onLogoutButton(_ sender: Any) {
         
     TwitterClient.sharedInstance?.logout()
         
     }
+    
     
     
     
@@ -60,4 +71,22 @@ class TweetsViewController: UIViewController {
     }
     */
 
+
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
+        
+        
+        
+        return cell
+        
+    }
+  
 }
+

@@ -55,17 +55,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Xye-zy-Sr3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetsCell" rowHeight="100" id="Xye-zy-Sr3" customClass="TweetsCell" customModule="CreymeTwitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xye-zy-Sr3" id="rXw-e9-qYW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Twitter_logo_blue_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
-                                                    <rect key="frame" x="8" y="26" width="48" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You Retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp2-iN-fmc">
                                                     <rect key="frame" x="66" y="8" width="85" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,6 +69,14 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="qyA-db-hHW">
+                                                    <rect key="frame" x="40" y="8" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Twitter_logo_blue_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
+                                                    <rect key="frame" x="8" y="26" width="48" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CodePath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iz8-9y-Qb3">
                                                     <rect key="frame" x="66" y="26" width="78" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,14 +109,6 @@
                                                     <rect key="frame" x="66" y="71" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="eH5-BG-DvC">
-                                                    <rect key="frame" x="152" y="71" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-be-XsT">
-                                                    <rect key="frame" x="231" y="71" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1a9-pa-8Dm">
                                                     <rect key="frame" x="87" y="73" width="8" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,6 +116,10 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="eH5-BG-DvC">
+                                                    <rect key="frame" x="152" y="71" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="551" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x8-hy-dxu">
                                                     <rect key="frame" x="174" y="73" width="21" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -127,8 +127,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="qyA-db-hHW">
-                                                    <rect key="frame" x="40" y="8" width="16" height="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-be-XsT">
+                                                    <rect key="frame" x="231" y="71" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,530" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-zd-5Vh">
@@ -140,6 +140,21 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likeCountIconView" destination="qYN-be-XsT" id="t1j-pp-qsx"/>
+                                            <outlet property="likeCountLabel" destination="F0T-zd-5Vh" id="I3y-hh-LZf"/>
+                                            <outlet property="profileImageView" destination="Fd3-bK-anb" id="TRD-AP-J6y"/>
+                                            <outlet property="replyCountIconView" destination="jeV-mm-cqK" id="ie4-MX-XcN"/>
+                                            <outlet property="replyCountLabel" destination="1a9-pa-8Dm" id="HJd-t7-Yi6"/>
+                                            <outlet property="retweetCountIconView" destination="eH5-BG-DvC" id="DOT-is-Wa0"/>
+                                            <outlet property="retweetCountLabel" destination="2x8-hy-dxu" id="dOu-lx-nGb"/>
+                                            <outlet property="retweetedIconView" destination="qyA-db-hHW" id="sbB-6w-3cy"/>
+                                            <outlet property="retweetedNameLabel" destination="bp2-iN-fmc" id="Smq-Ix-Kbe"/>
+                                            <outlet property="tweetDateLabel" destination="kQ1-ey-kRF" id="tzs-QM-3Kh"/>
+                                            <outlet property="tweetTextLabel" destination="0A5-rQ-CVi" id="0JE-2V-zOa"/>
+                                            <outlet property="userFullNameLabel" destination="Iz8-9y-Qb3" id="BRF-Wz-g0L"/>
+                                            <outlet property="userScreenNameLabel" destination="eFu-io-b3q" id="PQW-a9-qs6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -160,6 +175,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="uMl-Iv-whI"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="6Sf-MA-drF" id="jMn-He-Rnq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQZ-Wx-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
