@@ -56,19 +56,19 @@ class TweetsCell: UITableViewCell {
                 tweetDateLabel.text = "now"
             }
             if difference.second! > 0 && difference.minute! == 0 {
-                tweetDateLabel.text = "\(difference.second!)s."
+                tweetDateLabel.text = "\(difference.second!)s"
             }
             if difference.minute! > 0 && difference.hour! == 0 {
-                tweetDateLabel.text = "\(difference.minute!)m."
+                tweetDateLabel.text = "\(difference.minute!)m"
             }
             if difference.hour! > 0 && difference.day! == 0 {
-                tweetDateLabel.text = "\(difference.hour!)h."
+                tweetDateLabel.text = "\(difference.hour!)h"
             }
             if difference.day! > 0 && difference.weekOfMonth! == 0 {
-                tweetDateLabel.text = "\(difference.day!)d."
+                tweetDateLabel.text = "\(difference.day!)d"
             }
             if difference.weekOfMonth! > 0 {
-                tweetDateLabel.text = "\(difference.weekOfMonth!)w."
+                tweetDateLabel.text = "\(difference.weekOfMonth!)w"
             }
 
             tweetTextLabel.text = tweet.text

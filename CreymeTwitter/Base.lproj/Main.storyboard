@@ -110,7 +110,7 @@
                                                         <constraint firstAttribute="height" constant="16" id="yto-cm-BjQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-bK-anb">
                                                     <rect key="frame" x="8" y="26" width="48" height="48"/>
                                                     <color key="backgroundColor" red="0.33267149329185486" green="0.67360633611679077" blue="0.93191498517990112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
