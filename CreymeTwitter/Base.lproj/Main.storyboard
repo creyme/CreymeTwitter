@@ -65,7 +65,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qv2-mB-gXI">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="edk-Zw-JAU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="edk-Zw-JAU">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="LUg-hP-8iP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQZ-Wx-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>

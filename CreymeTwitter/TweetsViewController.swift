@@ -10,10 +10,14 @@ import UIKit
 
 class TweetsViewController: UIViewController {
 
+    // OUTLETS
+    
+    
+    
     
     // VARIABLES
     var tweets: [Tweet]!
-    
+    var tweetnum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,8 @@ class TweetsViewController: UIViewController {
             self.tweets = tweets
             
             for tweet in tweets {
-                print (tweet.text!)
+                self.tweetnum += 1
+                print ("tweet \(self.tweetnum) \(tweet.text!)")
             }
             
         }, failure: { (error) in
@@ -37,6 +42,14 @@ class TweetsViewController: UIViewController {
     }
     
 
+    @IBAction func onLogoutButton(_ sender: Any) {
+        
+    TwitterClient.sharedInstance?.logout()
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

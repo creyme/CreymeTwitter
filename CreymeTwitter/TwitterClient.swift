@@ -11,6 +11,8 @@ import BDBOAuth1Manager
 
 class TwitterClient: BDBOAuth1SessionManager {
     
+    
+    
     // AUTHORIZE
     static let sharedInstance = TwitterClient(baseURL: URL(string: "https://api.twitter.com")!,
                                        consumerKey: "AN5GCcUKmIERIBOlE3J1W7n2Q",
@@ -19,6 +21,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     // VARIABLES
     var loginSuccess: (() -> ())?
     var loginFailure: ((NSError) -> ())?
+   
     
     // LOGIN
     func login(success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
@@ -35,13 +38,19 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             UIApplication.shared.open(url)
             
-            
         }, failure: { (error) in
             print("error: \(error?.localizedDescription ?? String())")
             self.loginFailure?(error! as NSError)
         })
+    }
 
+    
+    // LOGOUT
+    func logout() {
+        User.currentUser = nil
+        deauthorize()
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil)
     }
     
     
@@ -78,7 +87,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     // GET USER INFO
     func currentAccount(success: @escaping (User) -> (), failure: @escaping (NSError) -> ()) {
         
-        
         get("1.1/account/verify_credentials.json",
             parameters: nil,
             progress: nil,
@@ -108,8 +116,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     // GET TWEETS
     func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
         
-        
-        get("1.1/statuses/user_timeline.json",
+        get("1.1/statuses/home_timeline.json",
             parameters: nil,
             progress: nil,
             success: { (task:URLSessionDataTask, response: Any?) in
@@ -123,11 +130,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
             print("error getting tweets")
-            failure(error as NSError)
-            
+            failure(error as NSError) 
         })
- 
     }
     
-
 }

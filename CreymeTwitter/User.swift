@@ -14,6 +14,7 @@ class User: NSObject {
     
     // STEP 1: ENUMERATE PROPERTIES: Variables for User details
     static var _currentUser: User?
+    static let userDidLogoutNotification = "UserDidLogout"
     var dictionary: NSDictionary?
     
     var name: String?
