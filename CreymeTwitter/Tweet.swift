@@ -14,7 +14,7 @@ class Tweet: NSObject {
     var tweetOwner = NSDictionary()
     var ownerName: String?
     var ownerScreenName: String?
-    var profileImage: URL?
+    var profileImageUrl: URL?
     var textId: String?
     var text: String?
     var timestamp: Date?
@@ -30,10 +30,18 @@ class Tweet: NSObject {
     init(dictionary: NSDictionary) {
         
         tweetOwner = (dictionary["user"] as? NSDictionary)!
+        
         ownerName = tweetOwner.value(forKeyPath: "name") as? String
         ownerScreenName = dictionary["screen_name"] as? String
         
-        textId = dictionary["id"] as? String
+        let imageURLString = tweetOwner.value(forKeyPath: "profile_image_url") as? String
+        if imageURLString != nil {
+            profileImageUrl = URL(string: imageURLString!)!
+        } else {
+            profileImageUrl = nil
+        }
+        
+        textId = dictionary["id_str"] as? String
         text = dictionary["text"] as? String
         
         let timestampString = dictionary["created_at"] as? String
