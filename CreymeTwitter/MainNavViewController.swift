@@ -17,7 +17,7 @@ class MainNavViewController: UINavigationController {
         self.navigationBar.barTintColor = UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationBar.tintColor = .white
-        self.navigationBar.barStyle = .black
+        self.navigationBar.barStyle = .blackOpaque
         
                
     }

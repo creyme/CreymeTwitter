@@ -18,23 +18,21 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tweets: [Tweet]!
     var tweetArray = [Tweet]()
     var tweetnum = 0
+    var refreshControl: UIRefreshControl!
     
     
     // DEFAULT FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        // UI
-        //navigationController?.navigationBar.layer.zPosition = -1
-        //navigationController?.isNavigationBarHidden = true
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.alpha = 0
-        self.twitterLogo()
-        let twitterLogo = UIImage(named: "Twitter_logo_white_32.png")
-        let logoImage = UIImageView(image: twitterLogo)
-        self.navigationItem.titleView = logoImage
 
+        // UI
+        self.twitterLogo()
+        let twitterLogo = UIImage(named: "Twitter_logo_white_48.png")
+        let logoImage = UIImageView(image: twitterLogo)
+        logoImage.frame.size.width = 32
+        logoImage.frame.size.height = 32
+        logoImage.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = logoImage
         
         // TABLEVIEW SETTINGS
         tableView.delegate = self
@@ -49,6 +47,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }, failure: { (error) in
             print(error.localizedDescription)
         })
+        
+        // REFRESH SETTINGS
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
 
     }
 
@@ -104,8 +107,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if finished {
                 UIView.animate(withDuration: 0.5, animations: { 
                     logo.transform = CGAffineTransform(scaleX: 20, y: 20)
-                    UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: { 
-                        //logo.alpha = 0
+                    UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: {
                         bgLayer.alpha = 0
                     }, completion: nil)
                 })
@@ -115,6 +117,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
+    // REFRESH FUNCTIONS
+    func onRefresh() {
+        print("onRefresh")
+        // LOAD TWEETS
+        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+    }
+    
+    
     // TABLEVIEW FUNCTIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.tweets != nil {
