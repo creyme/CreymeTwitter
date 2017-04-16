@@ -35,6 +35,15 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        // LOAD TWEETS
+        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
+            
+            self.tweets = tweets
+            self.tableView.reloadData()
+  
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
 
 
     }
@@ -69,32 +78,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if self.tweets != nil {
+            return tweets.count
+        } else {
+            return 0
+        }
+    
     }
+        
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
+        cell.tweet = self.tweets[indexPath.row]
         
-        // LOAD TWEETS
-        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
-            
-            self.tweets = tweets
-            
-            cell.tweet = self.tweets[indexPath.row]
-            
-            for tweet in tweets {
-                self.tweetnum += 1
-                print ("Tweet: \(self.tweetnum) \(tweet.text!)")
-                print ("By: \(tweet.ownerName!)")
-            }
-            self.tableView.reloadData()
-            
-            
-            
-        }, failure: { (error) in
-            print(error.localizedDescription)
-        })
         
         
         

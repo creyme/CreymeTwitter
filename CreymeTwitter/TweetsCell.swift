@@ -42,7 +42,7 @@ class TweetsCell: UITableViewCell {
             }
             
             userFullNameLabel.text = tweet.ownerName
-            userScreenNameLabel.text = "@\(tweet.ownerScreenName ?? String())"
+            userScreenNameLabel.text = "@\(tweet.ownerScreenName!)"
             
             // calculate date since posted
             let from = tweet.timestamp
@@ -75,9 +75,9 @@ class TweetsCell: UITableViewCell {
             
             let isretweet = tweet.isretweeted
                 if isretweet {
-                    retweetedIconView.image = UIImage(named: "retweet-action-on.png")
+                    retweetCountIconView.image = UIImage(named: "retweet-action-on.png")
                 } else {
-                    retweetedIconView.image = UIImage(named: "retweet-action.png")
+                    retweetCountIconView.image = UIImage(named: "retweet-action.png")
             }
             retweetCountLabel.text = String(tweet.retweetCount)
             

@@ -39,7 +39,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             UIApplication.shared.open(url)
             
         }, failure: { (error) in
-            print("error: \(error?.localizedDescription ?? String())")
+            print("LOGIN: \(error?.localizedDescription ?? String())")
             self.loginFailure?(error! as NSError)
         })
     }
@@ -77,7 +77,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                       
         }, failure: { (error: Error?) in
             
-                            print("error: \(error?.localizedDescription ?? String())")
+                            print("REQUEST TOKEN: \(error?.localizedDescription ?? String())")
                             self.loginFailure?(error! as NSError)
         })    
     }
@@ -106,7 +106,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         }, failure: { (task:URLSessionDataTask?, error:Error) in
             failure(error as NSError)
             
-            print("error: \(error.localizedDescription)")
+            print("GET USER INFO: \(error.localizedDescription)")
         })
     }
     
@@ -129,7 +129,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
-            print("error getting tweets")
+            print("GET TWEETS: error getting tweets")
             failure(error as NSError) 
         })
     }
