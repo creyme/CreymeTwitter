@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GJQ-QF-kge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -102,7 +102,7 @@
         <!--Home-->
         <scene sceneID="W42-r6-zWm">
             <objects>
-                <viewController id="pkz-Hf-xFT" customClass="TweetsViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="pkz-Hf-xFT" customClass="TweetsViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EhR-19-A7Y"/>
                         <viewControllerLayoutGuide type="bottom" id="9rq-AQ-wLd"/>
@@ -274,7 +274,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="uMl-Iv-whI">
                             <connections>
-                                <segue destination="ReL-zV-27B" kind="presentation" id="0Ol-Xi-Ut2"/>
+                                <segue destination="ReL-zV-27B" kind="presentation" identifier="newTweetSegue" id="rGB-Lg-DIe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -289,7 +289,7 @@
         <!--New Tweet-->
         <scene sceneID="KzB-VU-h8w">
             <objects>
-                <viewController id="GJQ-QF-kge" customClass="NewTweetViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewTweetViewController" id="GJQ-QF-kge" customClass="NewTweetViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8vo-EJ-TLg"/>
                         <viewControllerLayoutGuide type="bottom" id="bra-YX-gPk"/>
@@ -465,7 +465,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CE1-B9-Dd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2724" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2743" y="139"/>
         </scene>
     </scenes>
     <resources>

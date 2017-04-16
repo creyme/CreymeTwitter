@@ -11,10 +11,11 @@ import UIKit
 class Tweet: NSObject {
     
     // STEP 1: ENUMERATE PROPERTIES: Variables for User details
+    var user: User?
     var tweetOwner = NSDictionary()
     var ownerName: String?
     var ownerScreenName: String?
-    var profileImageUrl: URL?
+    var profileImageUrl: String?
     var textId: String?
     var text: String?
     var timestamp: Date?
@@ -34,12 +35,8 @@ class Tweet: NSObject {
         ownerName = tweetOwner.value(forKeyPath: "name") as? String
         ownerScreenName = tweetOwner.value(forKeyPath: "screen_name") as? String
         
-        let imageURLString = tweetOwner.value(forKeyPath: "profile_image_url") as? String
-        if imageURLString != nil {
-            profileImageUrl = URL(string: imageURLString!)!
-        } else {
-            profileImageUrl = nil
-        }
+        profileImageUrl = tweetOwner.value(forKeyPath: "profile_image_url") as? String
+    
         
         textId = dictionary["id_str"] as? String
         text = dictionary["text"] as? String
@@ -59,6 +56,16 @@ class Tweet: NSObject {
         favoritesCount = (tweetOwner.value(forKeyPath:"favourites_count") as? Int) ?? 0
         
          }
+    
+    
+    init(text: String?, timestamp: Date?, user: User?) {
+        self.text = text
+        self.timestamp = timestamp
+        self.ownerName = user?.name
+        self.ownerScreenName = user?.screenname
+        self.profileImageUrl = user?.profileUrl
+    }
+
     
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {

@@ -19,7 +19,7 @@ class User: NSObject {
     
     var name: String?
     var screenname: String?
-    var profileUrl: NSURL?
+    var profileUrl: String?
     var tagline: String?
     
     
@@ -32,13 +32,17 @@ class User: NSObject {
         
         screenname = dictionary["screen_name"] as? String
         
-        let profileUrlString = dictionary["profile_image_url_https"] as? String
-        if let profileUrlString = profileUrlString {
-            profileUrl = NSURL(string: profileUrlString)
-        }
+        profileUrl = dictionary["profile_image_url_https"] as? String
         
         tagline = dictionary["description"] as? String
         
+    }
+    
+    init(name: String?, screenname: String?, profileUrl: String?, tagline: String?) {
+        self.name = name
+        self.screenname = screenname
+        self.profileUrl = profileUrl
+        self.tagline = tagline
     }
     
     

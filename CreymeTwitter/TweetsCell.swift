@@ -36,11 +36,10 @@ class TweetsCell: UITableViewCell {
         didSet {
             
             if tweet.profileImageUrl != nil {
-                profileImageView.setImageWith(tweet.profileImageUrl!)
+                self.profileImageView.setImageWith(URL(string: tweet.profileImageUrl!)!)
             } else {
-                profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+                self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
             }
-            
             userFullNameLabel.text = tweet.ownerName
             userScreenNameLabel.text = "@\(tweet.ownerScreenName ?? String())"
             

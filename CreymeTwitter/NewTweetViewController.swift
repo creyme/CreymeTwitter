@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol NewTweetViewControllerDelegate {
+    func newTweetViewControllerDelegateCreatedTweet(tweet: Tweet)
+}
+
 class NewTweetViewController: UIViewController, UITextViewDelegate {
 
     // OUTLETS
@@ -23,7 +28,9 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     
     // VARIABLES
     var currentUser: User!
+    var newTweet: Tweet!
     var keyboardConstant: CGFloat?
+    var newTweetViewControllerDelegate: NewTweetViewControllerDelegate?
     
     
     // DEFAULT
@@ -51,7 +58,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        tweetTextView.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +71,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
         TwitterClient.sharedInstance?.currentAccount(success: { (currentUser) in
             if currentUser.profileUrl != nil {
-                self.profileImageView.setImageWith(currentUser.profileUrl! as URL)
+                self.profileImageView.setImageWith(URL(string: currentUser.profileUrl!)!)
             } else {
                 self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
             }
@@ -89,8 +96,17 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     @IBAction func onTweetSendButton(_ sender: Any) {
         if !tweetTextView.text.isEmpty && tweetTextView.text.characters.count <= 140 {
             // POST
+            TwitterClient.sharedInstance?.postTweet(tweetTextView.text!, inReplyToStatusId: nil, completion: { (success) in
+                if success {
+                    //INSERT NEW TWEET TO TABLEVIEW LOCALLY
+                    let Tweet = self.populateNewTweet()
+                    self.newTweetViewControllerDelegate?.newTweetViewControllerDelegateCreatedTweet(tweet: Tweet)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
         }
     }
+    
     
     // UI FUNCTIONS
     
@@ -142,6 +158,13 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     
     
     // TWEETBAR FUNCTIONS
+    
+    func populateNewTweet() -> Tweet {
+        let user = User(name: currentUser.name, screenname: currentUser.screenname, profileUrl: currentUser.profileUrl, tagline: currentUser.tagline)
+            let tweet = Tweet(text: tweetTextView.text, timestamp: Date(), user: user)
+        return tweet
+    }
+    
     func keyboardWillShow(_ notification : Notification) {
         let value = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         let rect = value.cgRectValue

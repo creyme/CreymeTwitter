@@ -9,7 +9,7 @@
 import UIKit
 import BDBOAuth1Manager
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTweetViewControllerDelegate {
 
     // OUTLETS
     @IBOutlet weak var tableView: UITableView!
@@ -67,17 +67,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         TwitterClient.sharedInstance?.logout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     // LAUNCH FUNCTIONS
     func twitterLogo() {
@@ -132,6 +121,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // TABLEVIEW FUNCTIONS
+    func newTweetViewControllerDelegateCreatedTweet(tweet: Tweet) {
+        tweets.insert(tweet, at: 0)
+        tableView.reloadData()
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.tweets != nil {
             return tweets.count
@@ -148,5 +143,19 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
   
+    
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+        if  segue.identifier == "newTweetSegue" {
+            let destination = segue.destination as! UINavigationController
+            let vc = destination.topViewController as! NewTweetViewController
+            vc.newTweetViewControllerDelegate = self
+        }
+     }
+    
 }
 
