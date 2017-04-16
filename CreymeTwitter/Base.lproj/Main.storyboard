@@ -194,21 +194,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-be-XsT">
-                                                    <rect key="frame" x="218" y="71" width="20" height="20"/>
+                                                    <rect key="frame" x="226" y="71" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="liX-b0-87L"/>
                                                         <constraint firstAttribute="height" constant="20" id="u92-En-83O"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-zd-5Vh">
-                                                    <rect key="frame" x="240" y="73" width="8" height="15"/>
+                                                    <rect key="frame" x="248" y="73" width="8" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eH5-BG-DvC" firstAttribute="leading" secondItem="1a9-pa-8Dm" secondAttribute="trailing" constant="50" id="1kI-b3-bdb"/>
+                                                <constraint firstItem="qYN-be-XsT" firstAttribute="leading" secondItem="eH5-BG-DvC" secondAttribute="trailing" constant="60" id="4x5-xY-d9e"/>
                                                 <constraint firstItem="F0T-zd-5Vh" firstAttribute="leading" secondItem="qYN-be-XsT" secondAttribute="trailing" constant="2" id="4za-4a-Xqq"/>
                                                 <constraint firstItem="0A5-rQ-CVi" firstAttribute="leading" secondItem="Fd3-bK-anb" secondAttribute="trailing" constant="10" id="CfK-gl-Bh8"/>
                                                 <constraint firstItem="qyA-db-hHW" firstAttribute="leading" secondItem="rXw-e9-qYW" secondAttribute="leading" constant="42" id="GcC-8I-AP7"/>
@@ -218,7 +218,7 @@
                                                 <constraint firstItem="bp2-iN-fmc" firstAttribute="top" secondItem="rXw-e9-qYW" secondAttribute="top" constant="8" id="RQY-GZ-zzl"/>
                                                 <constraint firstAttribute="trailing" secondItem="kQ1-ey-kRF" secondAttribute="trailing" constant="8" id="SCw-We-hjP"/>
                                                 <constraint firstItem="qYN-be-XsT" firstAttribute="centerY" secondItem="2x8-hy-dxu" secondAttribute="centerY" id="Xbo-uB-oSr"/>
-                                                <constraint firstItem="qYN-be-XsT" firstAttribute="leading" secondItem="2x8-hy-dxu" secondAttribute="trailing" constant="42" id="bPL-2Y-E3c"/>
+                                                <constraint firstItem="eH5-BG-DvC" firstAttribute="leading" secondItem="jeV-mm-cqK" secondAttribute="trailing" constant="60" id="bS4-rA-ew6"/>
                                                 <constraint firstItem="eFu-io-b3q" firstAttribute="baseline" secondItem="Iz8-9y-Qb3" secondAttribute="baseline" id="cKB-01-A7f"/>
                                                 <constraint firstItem="Fd3-bK-anb" firstAttribute="top" secondItem="Iz8-9y-Qb3" secondAttribute="top" id="dEd-U4-aQC"/>
                                                 <constraint firstItem="jeV-mm-cqK" firstAttribute="top" secondItem="0A5-rQ-CVi" secondAttribute="bottom" constant="5" id="dSG-9v-8tM"/>
