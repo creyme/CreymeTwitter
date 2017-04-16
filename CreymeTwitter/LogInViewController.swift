@@ -17,17 +17,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // UI
-
-        
         self.loginButton.layer.borderColor = UIColor.white.cgColor
         self.loginButton.layer.cornerRadius = 4
         self.loginButton.layer.borderWidth = 1.5
-        
         
         
     }
@@ -57,7 +53,7 @@ class LogInViewController: UIViewController {
             
             
         }) { (error) in
-            print("error: \(error.localizedDescription)")
+            print("Login Button: \(error.localizedDescription)")
         }
         
        

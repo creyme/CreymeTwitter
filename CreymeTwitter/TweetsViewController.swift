@@ -20,10 +20,17 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tweetnum = 0
     
     
+    // DEFAULT FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // UI
+        //navigationController?.navigationBar.layer.zPosition = -1
+        //navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.alpha = 0
+        self.twitterLogo()
         let twitterLogo = UIImage(named: "Twitter_logo_white_32.png")
         let logoImage = UIImageView(image: twitterLogo)
         self.navigationItem.titleView = logoImage
@@ -37,17 +44,15 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // LOAD TWEETS
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
-            
             self.tweets = tweets
             self.tableView.reloadData()
-  
         }, failure: { (error) in
             print(error.localizedDescription)
         })
 
-
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,14 +61,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // LOGOUT
     @IBAction func onLogoutButton(_ sender: Any) {
-        
-    TwitterClient.sharedInstance?.logout()
-        
+        TwitterClient.sharedInstance?.logout()
     }
     
-    
-    
-    
+
     /*
     // MARK: - Navigation
 
@@ -73,32 +74,62 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // LAUNCH FUNCTIONS
+    func twitterLogo() {
+        
+        // BG
+        let bgLayer = UIView()
+        bgLayer.frame = self.view.frame
+        bgLayer.backgroundColor = UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
+        self.view.addSubview(bgLayer)
+        
+            // Twitter
+            let logo = UIImageView()
+            logo.image = UIImage(named: "Twitter_Logo_White_On_Image.png")
+            logo.frame.size.width = 100
+            logo.frame.size.height = 100
+            logo.center = view.center
+            bgLayer.addSubview(logo)
+        
+        let window = UIApplication.shared.keyWindow
+        _ = window!.convert(bgLayer.frame, from: view)
+        window!.addSubview(bgLayer)
 
+        // Transform
+        UIView.animate(withDuration: 0.5, delay: 1, options: .curveLinear, animations: {
+            logo.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (finished) in
+            if finished {
+                UIView.animate(withDuration: 0.5, animations: { 
+                    logo.transform = CGAffineTransform(scaleX: 20, y: 20)
+                    UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: { 
+                        //logo.alpha = 0
+                        bgLayer.alpha = 0
+                    }, completion: nil)
+                })
+            }
+        }
+        
+    }
+    
 
-
-
+    // TABLEVIEW FUNCTIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.tweets != nil {
             return tweets.count
         } else {
             return 0
         }
-    
     }
         
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
         cell.tweet = self.tweets[indexPath.row]
-        
-        
-        
-        
-        
-        
+  
         return cell
-        
     }
   
 }
