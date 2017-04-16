@@ -32,7 +32,7 @@ class Tweet: NSObject {
         tweetOwner = (dictionary["user"] as? NSDictionary)!
         
         ownerName = tweetOwner.value(forKeyPath: "name") as? String
-        ownerScreenName = dictionary["screen_name"] as? String
+        ownerScreenName = tweetOwner.value(forKeyPath: "screen_name") as? String
         
         let imageURLString = tweetOwner.value(forKeyPath: "profile_image_url") as? String
         if imageURLString != nil {
@@ -56,7 +56,7 @@ class Tweet: NSObject {
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         
         isfavorite = (dictionary["favorited"] as? Bool)!
-        favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        favoritesCount = (tweetOwner.value(forKeyPath:"favourites_count") as? Int) ?? 0
         
          }
     

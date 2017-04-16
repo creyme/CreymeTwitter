@@ -42,7 +42,7 @@ class TweetsCell: UITableViewCell {
             }
             
             userFullNameLabel.text = tweet.ownerName
-            userScreenNameLabel.text = "@\(tweet.ownerScreenName!)"
+            userScreenNameLabel.text = "@\(tweet.ownerScreenName ?? String())"
             
             // calculate date since posted
             let from = tweet.timestamp
