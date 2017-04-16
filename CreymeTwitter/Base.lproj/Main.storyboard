@@ -416,8 +416,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomContraint" destination="qiy-pL-Qiq" id="BLv-CE-1k9"/>
                         <outlet property="characterCounterLabel" destination="jH0-On-5Fq" id="oQw-hh-irW"/>
                         <outlet property="profileImageView" destination="vxd-hs-LHA" id="ItV-YJ-IjG"/>
+                        <outlet property="tweetBarView" destination="19Z-bX-woe" id="tDu-Wy-VOg"/>
                         <outlet property="tweetSendButton" destination="u84-dN-Cim" id="ASb-7c-TeN"/>
                         <outlet property="tweetTextView" destination="Iq8-US-OXq" id="8co-AH-ObX"/>
                         <outlet property="tweetTextViewPlaceholder" destination="XMn-oE-L4I" id="NKK-4M-vbf"/>

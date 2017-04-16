@@ -18,6 +18,12 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetTextViewPlaceholder: UITextView!
     @IBOutlet weak var characterCounterLabel: UILabel!
     @IBOutlet weak var tweetSendButton: UIButton!
+    @IBOutlet weak var tweetBarView: UIView!
+    @IBOutlet weak var bottomContraint: NSLayoutConstraint!
+    
+    // VARIABLES
+    var currentUser: User!
+    var keyboardConstant: CGFloat?
     
     
     // DEFAULT
@@ -29,6 +35,23 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         disableTweetButton()
         self.automaticallyAdjustsScrollViewInsets = false
         tweetTextViewPlaceholder.isHidden = false
+        keyboardConstant = bottomContraint.constant
+        
+        // TWEETBAR SETTINGS
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        // LOAD CURRENT USER
+        loadCurrentUser()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tweetTextView.becomeFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +59,26 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // USER FUNCTIONS
+    func loadCurrentUser() {
+        
+        TwitterClient.sharedInstance?.currentAccount(success: { (currentUser) in
+            if currentUser.profileUrl != nil {
+                self.profileImageView.setImageWith(currentUser.profileUrl! as URL)
+            } else {
+                self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            }
+            self.currentUser = currentUser
+            self.userFullNameLabel.text = currentUser.name
+            self.userScreenNameLabel.text = currentUser.screenname
+
+            
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+
+    }
+        
     
     // CANCEL
     @IBAction func onCancelTweetButton(_ sender: Any) {
@@ -78,6 +121,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
         if textViewChrCount >= 1 {
             tweetTextViewPlaceholder.isHidden = true
+            characterCounterLabel.textColor = UIColor.lightGray
             enableTweetButton()
         }
         if textViewChrCount > 140 {
@@ -85,6 +129,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
             tweetTextViewPlaceholder.isHidden = true
             disableTweetButton()
         } else if tweetTextView.text.trimmingCharacters(in: spaces).isEmpty {
+            characterCounterLabel.textColor = UIColor.lightGray
             tweetTextViewPlaceholder.isHidden = false
             disableTweetButton()
         } else  {
@@ -95,6 +140,20 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    
+    // TWEETBAR FUNCTIONS
+    func keyboardWillShow(_ notification : Notification) {
+        let value = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let rect = value.cgRectValue
+        self.bottomContraint.constant = rect.size.height
+        
+    }
+    
+    func keyboardWillHide(_ notification : Notification) {
+        self.bottomContraint.constant = keyboardConstant!
+        
+    }
+
     
 
     /*
