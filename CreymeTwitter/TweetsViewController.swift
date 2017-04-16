@@ -150,10 +150,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      
-        if  segue.identifier == "newTweetSegue" {
+        if segue.identifier == "newTweetSegue" {
             let destination = segue.destination as! UINavigationController
             let vc = destination.topViewController as! NewTweetViewController
             vc.newTweetViewControllerDelegate = self
+            
+        } else if segue.identifier == "detailsTweetSegue" {
+            let destination = segue.destination as! DetailsViewController
+            //vc.newTweetViewControllerDelegate = self
         }
      }
     
