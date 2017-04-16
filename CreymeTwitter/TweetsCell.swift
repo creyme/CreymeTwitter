@@ -50,6 +50,9 @@ class TweetsCell: UITableViewCell {
             let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
             let calendar = Calendar.current
             let difference = calendar.dateComponents(components, from: from! as Date, to: now)
+            let format = DateFormatter()
+            format.dateFormat = "M/d/yy"
+            let createdAt = format.string(from: from!)
 
             // logic to show date
             if difference.second! <= 0 {
@@ -68,7 +71,7 @@ class TweetsCell: UITableViewCell {
                 tweetDateLabel.text = "\(difference.day!)d"
             }
             if difference.weekOfMonth! > 0 {
-                tweetDateLabel.text = "\(difference.weekOfMonth!)w"
+                tweetDateLabel.text = "\(createdAt)"
             }
 
             tweetTextLabel.text = tweet.text

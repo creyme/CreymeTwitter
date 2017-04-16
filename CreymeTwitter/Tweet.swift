@@ -44,9 +44,9 @@ class Tweet: NSObject {
         textId = dictionary["id_str"] as? String
         text = dictionary["text"] as? String
         
-        let timestampString = dictionary["created_at"] as? String
+        let timeStampString = dictionary["created_at"] as? String
         
-        if let timestampString = timestampString {
+        if let timestampString = timeStampString {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
