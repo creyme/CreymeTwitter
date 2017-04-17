@@ -78,8 +78,12 @@ class TweetsCell: UITableViewCell {
             let isretweet = tweet.isretweeted
                 if isretweet {
                     retweetCountIconView.image = UIImage(named: "retweet-action-on.png")
+                    retweetedNameLabel.isHidden = false
+                    retweetedIconView.isHidden = false
                 } else {
                     retweetCountIconView.image = UIImage(named: "retweet-action.png")
+                    retweetedNameLabel.isHidden = true
+                    retweetedIconView.isHidden = true
             }
             retweetCountLabel.text = String(tweet.retweetCount)
             

@@ -149,7 +149,9 @@ class DetailsViewController: UIViewController {
     }
     
 
-    @IBOutlet weak var onReplyButton_Tap: UIButton!
+    @IBAction func onReplyButton_Tap(_ sender: Any) {
+    }
+    
     
     
 

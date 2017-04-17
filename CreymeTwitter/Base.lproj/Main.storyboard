@@ -500,6 +500,9 @@
                                                 <constraint firstAttribute="height" constant="25" id="j46-AU-gkg"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="reply-action_0.png"/>
+                                            <connections>
+                                                <action selector="onReplyButton_Tap:" destination="1Mo-Au-RcY" eventType="touchUpInside" id="Ed9-Z4-nfk"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bJ-IF-n0C">
                                             <rect key="frame" x="89" y="152.5" width="8" height="14.5"/>
@@ -651,9 +654,7 @@
                     <connections>
                         <outlet property="likeCountIconButton" destination="PnT-Jk-hAR" id="kFN-iA-rJo"/>
                         <outlet property="likeCountLabel" destination="hRe-kP-P91" id="93W-NE-rec"/>
-                        <outlet property="onReplyButton_Tap" destination="zGH-Eg-vJ0" id="WiC-G5-7sQ"/>
                         <outlet property="profileImageView" destination="qcL-Wh-K8e" id="aSj-fk-701"/>
-                        <outlet property="replyCountIconButton" destination="zGH-Eg-vJ0" id="ffJ-Ua-p6z"/>
                         <outlet property="replyCountLabel" destination="6bJ-IF-n0C" id="bNW-An-wF1"/>
                         <outlet property="retweetCountIconButton" destination="jxy-SO-vFX" id="Pnv-YB-lDL"/>
                         <outlet property="retweetCountLabel" destination="Bac-TM-Mu9" id="ShE-6L-hqx"/>

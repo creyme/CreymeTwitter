@@ -41,6 +41,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        
+        
+        // REFRESH SETTINGS
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // LOAD TWEETS
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets) in
             self.tweets = tweets
@@ -48,12 +58,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }, failure: { (error) in
             print(error.localizedDescription)
         })
-        
-        // REFRESH SETTINGS
-        refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
-
     }
 
     
