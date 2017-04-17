@@ -17,6 +17,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // VARIABLES
     var tweets: [Tweet]!
     var tweetArray = [Tweet]()
+    var currentTweetDetails: Tweet!
     var tweetnum = 0
     var refreshControl: UIRefreshControl!
     
@@ -157,7 +158,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         } else if segue.identifier == "detailsTweetSegue" {
             let destination = segue.destination as! DetailsViewController
-            //vc.newTweetViewControllerDelegate = self
+            if let indexPath = tableView.indexPathForSelectedRow {
+            destination.tweet = self.tweets[indexPath.row]
+            }
         }
      }
     
