@@ -27,7 +27,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Launch Screen
+- [x] Launch Screen with animation
+- [x] TextView input validation, won't accept blank spaces for tweet.
+
+
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
