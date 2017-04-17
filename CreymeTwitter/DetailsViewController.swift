@@ -136,7 +136,9 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
         if !tweetTextView.text.isEmpty && tweetTextView.text.characters.count <= 140 {
             // POST
             TwitterClient.sharedInstance?.replyTweet(text: tweetTextView.text, id: tweet.id, success: { (tweet) in
-                
+                self.tweet = tweet
+                print("success reply")
+                self.tweetTextView.resignFirstResponder()
                 
             }, failure: { (error) in
                 print("error reply")
@@ -231,8 +233,6 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
     
     func loadTweetOwner() {
         
-        print ("CREYME: \(tweet.textId ?? String())")
-        print(tweet.textId!)
         profileImageView.layer.cornerRadius = 4
         if tweet.profileImageUrl != nil {
             self.profileImageView.setImageWith(URL(string: tweet.profileImageUrl!)!)
