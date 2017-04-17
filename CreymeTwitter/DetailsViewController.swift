@@ -132,7 +132,22 @@ class DetailsViewController: UIViewController {
     }
        
     @IBAction func onRetweetButton_Tap(_ sender: Any) {
+        
+        if tweet.isretweeted == false {
+            
+            TwitterClient.sharedInstance?.reTweet(id: tweet.id, success: { (tweet) in
+                // process retweet
+                self.tweet = tweet
+                self.tweet.isretweeted = true
+                self.retweetCountIconButton.setImage(UIImage(named: "retweet-action-on.png"), for: .normal)
+                let newCount = Int(self.retweetCountLabel.text!)
+                self.retweetCountLabel.text = String(newCount! + 1)
+            }, failure: { (error) in
+                print("error retweet")
+            })
+        }
     }
+    
 
     @IBOutlet weak var onReplyButton_Tap: UIButton!
     
