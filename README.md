@@ -1,6 +1,6 @@
-# Project 3 - *CreymeYelp*
+# Project 3 - *CreymeTwitter*
 
-**CreymeYelp** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
+**CreymeTwitter** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
 Time spent: **22** hours spent in total
 
