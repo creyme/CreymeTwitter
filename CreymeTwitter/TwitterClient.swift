@@ -134,73 +134,102 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    
-    // POST TWEET
-    func postTweet(_ tweetText: String!, inReplyToStatusId: String?, completion: @escaping (Bool) -> Void) {
+    // POST NEW TWEETS
+    func newTweet(text: String, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
         
-        var parameters: [String:String] = ["status":tweetText]
-        if let inReplyToStatusId = inReplyToStatusId {
-            parameters["in_reply_to_status_id_str"] = inReplyToStatusId
-        }
-        
-        post("1.1/statuses/update.json", parameters: parameters, progress: nil, success: { (task, response) in
-            completion(true)
-        }) { (task, error) in
-            print("POST TWEET: \(error.localizedDescription)")
-        }
-    }
-    
-    // FAVORITES-LIKE
-    func likedTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
-    let parameters = ["id_str": textId]
-        
-        post("1.1/favorites/create.json", parameters: parameters, progress: nil, success: { (task, response) in
-            let tweet = Tweet(dictionary: response as! NSDictionary)
-            success(tweet)
-        }) { (task, error) in
-            print("LIKE: \(error.localizedDescription)")
+        post("1.1/statuses/update.json",
+            parameters: ["status": text],
+            progress: nil,
+            success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweets = Tweet(dictionary: response as! NSDictionary)
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("POST NEW TWEET: error posting")
             failure(error as NSError)
-        }
+        })
     }
+
     
-    // UNFAVORITE-UNLIKE
-    func unlikedTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
-        let parameters = ["id_str": textId]
+    // REPLY TO TWEET
+    func replyTweet(text: String, id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
         
-        post("1.1/favorites/destroy.json", parameters: parameters, progress: nil, success: { (task, response) in
-            let tweet = Tweet(dictionary: response as! NSDictionary)
-            success(tweet)
-        }) { (task, error) in
-            print("UNLIKE: \(error.localizedDescription)")
+        post("1.1/statuses/update.json",
+            parameters: ["status": text, "id": id],
+            progress: nil,
+            success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweets = Tweet(dictionary: response as! NSDictionary)
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("REPLY TWEETS: error replying")
             failure(error as NSError)
-        }
+        })
     }
 
     
     // RETWEET
-    func reTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+    func reTweet(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
         
-        post("1.1/statuses/retweet/\(textId).json", parameters: nil, progress: nil, success: { (task, response) in
-            let tweet = Tweet(dictionary: response as! NSDictionary)
-            success(tweet)
-        }) { (task, error) in
-            print("RETWEET: \(error.localizedDescription)")
+        post("1.1/statuses/retweet.json",
+             parameters: ["id": id],
+             progress: nil,
+             success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweets = Tweet(dictionary: response as! NSDictionary)
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("POST NEW TWEET: error posting")
             failure(error as NSError)
-        }
-    }
-    
-    // UNRETWEET/UNTWEET
-    func unTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
-        
-        post("1.1/statuses/unretweet/\(textId).json", parameters: nil, progress: nil, success: { (task, response) in
-            let tweet = Tweet(dictionary: response as! NSDictionary)
-            success(tweet)
-        }) { (task, error) in
-            print("RETWEET: \(error.localizedDescription)")
-            failure(error as NSError)
-        }
+        })
     }
 
+    
+    // FAVORITE
+    func likeTweet(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        
+        post("1.1/favorites/create.json",
+             parameters: ["id": id],
+             progress: nil,
+             success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweets = Tweet(dictionary: response as! NSDictionary)
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("POST NEW TWEET: error posting")
+            failure(error as NSError)
+        })
+    }
+
+    
+    // UNFAVORITE
+    func unlikeTweet(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        
+        post("1.1/favorites/destroy.json",
+             parameters: ["id": id],
+             progress: nil,
+             success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweets = Tweet(dictionary: response as! NSDictionary)
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("POST NEW TWEET: error posting")
+            failure(error as NSError)
+        })
+    }
+    
+    
+   
 
     
     

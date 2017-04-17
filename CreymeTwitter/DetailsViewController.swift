@@ -30,17 +30,17 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var likeCountIconButton: UIButton!
     @IBOutlet weak var likeCountLabel: UILabel!
     
-    // LOAD TWEET DETAILS
     
+    // LOAD TWEET DETAILS
     var tweet: Tweet!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print ("CREYME: \(tweet.textId ?? String())")
+        print(tweet.textId!)
         profileImageView.layer.cornerRadius = 4
-        
         if tweet.profileImageUrl != nil {
             self.profileImageView.setImageWith(URL(string: tweet.profileImageUrl!)!)
         } else {
@@ -102,9 +102,41 @@ class DetailsViewController: UIViewController {
         }
     
     
-    
+    // LIKE BUTTON TAP
+    @IBAction func onLikeButton_Tap(_ sender: Any) {
+        
+        if tweet.isfavorite == false {
+            
+            TwitterClient.sharedInstance?.likeTweet(id: tweet.id, success: { (tweet) in
+                // process like
+                self.tweet = tweet
+                self.tweet.isfavorite = true
+                self.likeCountIconButton.setImage(UIImage(named: "like-action-on.png"), for: .normal)
+                let newCount = Int(self.likeCountLabel.text!)
+                self.likeCountLabel.text = String(newCount! + 1)
+            }, failure: { (error) in
+                print("error like")
+            })
+            } else {
+            TwitterClient.sharedInstance?.unlikeTweet(id: tweet.id, success: { (tweet) in
+                // process unlike
+                self.tweet = tweet
+                self.tweet.isfavorite = false
+                self.likeCountIconButton.setImage(UIImage(named: ""), for: .normal)
+                let newCount = Int(self.likeCountLabel.text!)
+                self.likeCountLabel.text = String(newCount! - 1)
+            }, failure: { (error) in
+                print("error unlike")
+            })
+        }
+    }
        
+    @IBAction func onRetweetButton_Tap(_ sender: Any) {
+    }
 
+    @IBOutlet weak var onReplyButton_Tap: UIButton!
+    
+    
 
         // Do any additional setup after loading the view.
 

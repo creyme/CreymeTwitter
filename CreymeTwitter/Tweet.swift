@@ -17,6 +17,7 @@ class Tweet: NSObject {
     var ownerName: String?
     var ownerScreenName: String?
     var profileImageUrl: String?
+    var id: Int = 0
     var textId: String?
     var text: String?
     var timestamp: Date?
@@ -38,7 +39,7 @@ class Tweet: NSObject {
         
         profileImageUrl = tweetOwner.value(forKeyPath: "profile_image_url") as? String
     
-        
+        id = (dictionary["id"] as? Int) ?? 0
         textId = dictionary["id_str"] as? String
         text = dictionary["text"] as? String
         

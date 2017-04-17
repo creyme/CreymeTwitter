@@ -96,13 +96,13 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     @IBAction func onTweetSendButton(_ sender: Any) {
         if !tweetTextView.text.isEmpty && tweetTextView.text.characters.count <= 140 {
             // POST
-            TwitterClient.sharedInstance?.postTweet(tweetTextView.text!, inReplyToStatusId: nil, completion: { (success) in
-                if success {
-                    //INSERT NEW TWEET TO TABLEVIEW LOCALLY
-                    let Tweet = self.populateNewTweet()
-                    self.newTweetViewControllerDelegate?.newTweetViewControllerDelegateCreatedTweet(tweet: Tweet)
-                    self.dismiss(animated: true, completion: nil)
-                }
+            TwitterClient.sharedInstance?.newTweet(text: tweetTextView.text, success: { (tweet) in
+                //INSERT NEW TWEET TO TABLEVIEW LOCALLY
+                let Tweet = self.populateNewTweet()
+                self.newTweetViewControllerDelegate?.newTweetViewControllerDelegateCreatedTweet(tweet: Tweet)
+                self.dismiss(animated: true, completion: nil)
+            }, failure: { (error) in
+                print ("error on new tweet")
             })
         }
     }
