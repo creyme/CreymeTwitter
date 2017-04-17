@@ -694,13 +694,7 @@
                             <constraint firstAttribute="trailing" secondItem="BjI-Z6-EyM" secondAttribute="trailing" id="fir-lx-Lgk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="Spc-gw-yiV">
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="gK9-xo-iqs">
-                            <connections>
-                                <action selector="onReplyBarItem_Tap:" destination="1Mo-Au-RcY" id="MNh-wD-EGc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tweet" id="Spc-gw-yiV"/>
                     <connections>
                         <outlet property="bottomContraint" destination="2kp-au-cHh" id="vrn-6t-LhB"/>
                         <outlet property="characterCounterLabel" destination="6BJ-Re-WEV" id="tMs-Eo-5OD"/>

@@ -126,10 +126,6 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
         tweetTextView.becomeFirstResponder()
     }
     
-    @IBAction func onReplyBarItem_Tap(_ sender: Any) {
-        tweetTextView.becomeFirstResponder()
-    }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         tweetTextView.resignFirstResponder()
