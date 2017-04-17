@@ -1,0 +1,6 @@
+framework module Pods_CreymeTwitter {
+  umbrella header "Pods-CreymeTwitter-umbrella.h"
+
+  export *
+  module * { export * }
+}
