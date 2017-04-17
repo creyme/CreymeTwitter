@@ -59,12 +59,17 @@ class Tweet: NSObject {
          }
     
     
-    init(text: String?, timestamp: Date?, user: User?) {
+    init(text: String?, timestamp: Date?, user: User?, isRetweeted: Bool = false, retweetCount: Int = 0, isFavorite: Bool = false, favoritesCount: Int = 0) {
         self.text = text
         self.timestamp = timestamp
         self.ownerName = user?.name
         self.ownerScreenName = user?.screenname
         self.profileImageUrl = user?.profileUrl
+        self.isretweeted = isRetweeted
+        self.retweetCount = retweetCount
+        self.isfavorite = isFavorite
+        self.favoritesCount = favoritesCount
+        
     }
 
     

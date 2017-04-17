@@ -148,7 +148,64 @@ class TwitterClient: BDBOAuth1SessionManager {
         }) { (task, error) in
             print("POST TWEET: \(error.localizedDescription)")
         }
-        
     }
+    
+    // FAVORITES-LIKE
+    func likedTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+    let parameters = ["id_str": textId]
+        
+        post("1.1/favorites/create.json", parameters: parameters, progress: nil, success: { (task, response) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+        }) { (task, error) in
+            print("LIKE: \(error.localizedDescription)")
+            failure(error as NSError)
+        }
+    }
+    
+    // UNFAVORITE-UNLIKE
+    func unlikedTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        let parameters = ["id_str": textId]
+        
+        post("1.1/favorites/destroy.json", parameters: parameters, progress: nil, success: { (task, response) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+        }) { (task, error) in
+            print("UNLIKE: \(error.localizedDescription)")
+            failure(error as NSError)
+        }
+    }
+
+    
+    // RETWEET
+    func reTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        
+        post("1.1/statuses/retweet/\(textId).json", parameters: nil, progress: nil, success: { (task, response) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+        }) { (task, error) in
+            print("RETWEET: \(error.localizedDescription)")
+            failure(error as NSError)
+        }
+    }
+    
+    // UNRETWEET/UNTWEET
+    func unTweet(_ textId: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        
+        post("1.1/statuses/unretweet/\(textId).json", parameters: nil, progress: nil, success: { (task, response) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+        }) { (task, error) in
+            print("RETWEET: \(error.localizedDescription)")
+            failure(error as NSError)
+        }
+    }
+
+
+    
+    
+    
+    
+    
     
 }
