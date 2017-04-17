@@ -28,9 +28,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Launch Screen with twitter zoom animation
-- [x] TextView input validation, won't accept blank spaces for tweet.
-- [x] User won't be able to send tweet with more than 140 characters.
 - [x] TextView input validation won't accept blank spaces or enters for tweet.
+- [x] User won't be able to send tweet with more than 140 characters.
 - [x] Sliding out texbox/ texbox attached to keyboard.
 - [ ] TableView of replies for the selected tweet in DetailsViewController.
 
