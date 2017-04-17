@@ -694,7 +694,13 @@
                             <constraint firstAttribute="trailing" secondItem="BjI-Z6-EyM" secondAttribute="trailing" id="fir-lx-Lgk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="Spc-gw-yiV"/>
+                    <navigationItem key="navigationItem" title="Tweet" id="Spc-gw-yiV">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="gK9-xo-iqs">
+                            <connections>
+                                <action selector="onReplyBarItem_Tap:" destination="1Mo-Au-RcY" id="MNh-wD-EGc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomContraint" destination="2kp-au-cHh" id="vrn-6t-LhB"/>
                         <outlet property="characterCounterLabel" destination="6BJ-Re-WEV" id="tMs-Eo-5OD"/>
@@ -705,6 +711,7 @@
                         <outlet property="replyToLabel" destination="xji-aW-jeb" id="xPT-dN-sXA"/>
                         <outlet property="retweetCountIconButton" destination="jxy-SO-vFX" id="Pnv-YB-lDL"/>
                         <outlet property="retweetCountLabel" destination="Bac-TM-Mu9" id="ShE-6L-hqx"/>
+                        <outlet property="retweetedNameLabel" destination="xji-aW-jeb" id="MGD-aE-Poh"/>
                         <outlet property="tweetBarView" destination="LUv-hb-3fz" id="WAc-0z-cCg"/>
                         <outlet property="tweetDateLabel" destination="7Lj-KP-Oia" id="TSb-Es-6Y6"/>
                         <outlet property="tweetSendButton" destination="PzU-zg-FXv" id="rDX-OP-5tG"/>

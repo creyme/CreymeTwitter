@@ -61,7 +61,7 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
         
         // LOAD TWEET DETAILS
         loadTweetOwner()
-        
+        retweetedNameLabel.text = tweet.ownerScreenName
         
     
     // TWEETBAR SETTINGS
@@ -125,6 +125,11 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
     @IBAction func onReplyButton_Tap(_ sender: Any) {
         tweetTextView.becomeFirstResponder()
     }
+    
+    @IBAction func onReplyBarItem_Tap(_ sender: Any) {
+        tweetTextView.becomeFirstResponder()
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         tweetTextView.resignFirstResponder()
@@ -232,6 +237,8 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
     
     
     func loadTweetOwner() {
+        
+        
         
         profileImageView.layer.cornerRadius = 4
         if tweet.profileImageUrl != nil {
