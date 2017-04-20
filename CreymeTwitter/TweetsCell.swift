@@ -29,6 +29,7 @@ class TweetsCell: UITableViewCell {
     @IBOutlet weak var likeCountIconView: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
     
+    @IBOutlet weak var profileImageTopConstraint: NSLayoutConstraint!
     
     
     
@@ -78,10 +79,12 @@ class TweetsCell: UITableViewCell {
             retweetCountLabel.text = String("\(tweet.retweetCount)")
             let isretweet = tweet.isretweeted
                 if isretweet {
+                    profileImageTopConstraint.constant = 18
                     retweetCountIconView.image = UIImage(named: "retweet-action-on.png")
                     retweetedNameLabel.isHidden = false
                     retweetedIconView.isHidden = false
                 } else {
+                    profileImageTopConstraint.constant = 0
                     retweetCountIconView.image = UIImage(named: "retweet-action.png")
                     retweetedNameLabel.isHidden = true
                     retweetedIconView.isHidden = true

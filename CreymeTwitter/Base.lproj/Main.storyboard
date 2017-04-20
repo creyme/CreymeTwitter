@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -222,7 +223,6 @@
                                                 <constraint firstItem="eFu-io-b3q" firstAttribute="baseline" secondItem="Iz8-9y-Qb3" secondAttribute="baseline" id="cKB-01-A7f"/>
                                                 <constraint firstItem="Fd3-bK-anb" firstAttribute="top" secondItem="Iz8-9y-Qb3" secondAttribute="top" id="dEd-U4-aQC"/>
                                                 <constraint firstItem="jeV-mm-cqK" firstAttribute="top" secondItem="0A5-rQ-CVi" secondAttribute="bottom" constant="5" id="dSG-9v-8tM"/>
-                                                <constraint firstItem="Iz8-9y-Qb3" firstAttribute="top" secondItem="bp2-iN-fmc" secondAttribute="bottom" constant="3" id="fdS-UA-s4V"/>
                                                 <constraint firstItem="eH5-BG-DvC" firstAttribute="centerY" secondItem="1a9-pa-8Dm" secondAttribute="centerY" id="gah-c5-bER"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeV-mm-cqK" secondAttribute="bottom" constant="9" id="hG3-Ex-cXr"/>
                                                 <constraint firstItem="2x8-hy-dxu" firstAttribute="leading" secondItem="eH5-BG-DvC" secondAttribute="trailing" constant="2" id="lSi-bi-sns"/>
@@ -231,6 +231,7 @@
                                                 <constraint firstItem="bp2-iN-fmc" firstAttribute="leading" secondItem="qyA-db-hHW" secondAttribute="trailing" constant="8" id="p0O-qQ-enw"/>
                                                 <constraint firstItem="2x8-hy-dxu" firstAttribute="centerY" secondItem="eH5-BG-DvC" secondAttribute="centerY" id="pYi-Ih-h66"/>
                                                 <constraint firstItem="kQ1-ey-kRF" firstAttribute="baseline" secondItem="eFu-io-b3q" secondAttribute="baseline" id="qeh-D8-AOX"/>
+                                                <constraint firstItem="Fd3-bK-anb" firstAttribute="top" secondItem="rXw-e9-qYW" secondAttribute="topMargin" constant="18" id="s3Q-LT-YRf"/>
                                                 <constraint firstItem="F0T-zd-5Vh" firstAttribute="centerY" secondItem="qYN-be-XsT" secondAttribute="centerY" id="s6N-ft-ZIm"/>
                                                 <constraint firstItem="bp2-iN-fmc" firstAttribute="centerY" secondItem="qyA-db-hHW" secondAttribute="centerY" id="tCd-Nn-qyf"/>
                                                 <constraint firstItem="1a9-pa-8Dm" firstAttribute="centerY" secondItem="jeV-mm-cqK" secondAttribute="centerY" id="uLD-tz-gge"/>
@@ -242,6 +243,7 @@
                                         <connections>
                                             <outlet property="likeCountIconView" destination="qYN-be-XsT" id="t1j-pp-qsx"/>
                                             <outlet property="likeCountLabel" destination="F0T-zd-5Vh" id="I3y-hh-LZf"/>
+                                            <outlet property="profileImageTopConstraint" destination="s3Q-LT-YRf" id="zMm-Ro-1Gq"/>
                                             <outlet property="profileImageView" destination="Fd3-bK-anb" id="TRD-AP-J6y"/>
                                             <outlet property="replyCountIconView" destination="jeV-mm-cqK" id="ie4-MX-XcN"/>
                                             <outlet property="replyCountLabel" destination="1a9-pa-8Dm" id="HJd-t7-Yi6"/>
