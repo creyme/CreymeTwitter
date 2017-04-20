@@ -118,11 +118,16 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
                 print("error retweet")
             })
         } else {
-        
-            self.tweet.isretweeted = false
-            self.retweetCountIconButton.setImage(UIImage(named: ""), for: .normal)
-            let newCount = Int(self.retweetCountLabel.text!)
-            self.retweetCountLabel.text = String(newCount! - 1)
+            TwitterClient.sharedInstance?.unreTweet(id: tweet.id, success: { (tweet) in
+                self.tweet = tweet
+                self.tweet.isretweeted = false
+                self.retweetCountIconButton.setImage(UIImage(named: ""), for: .normal)
+                let newCount = Int(self.retweetCountLabel.text!)
+                self.retweetCountLabel.text = String(newCount! - 1)
+            }, failure: { (error) in
+                print("error unretweet")
+            })
+            
             
         }
     }

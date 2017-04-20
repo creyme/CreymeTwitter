@@ -207,10 +207,31 @@ class TwitterClient: BDBOAuth1SessionManager {
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
-            print("POST NEW TWEET: error posting")
+            print("RETWEET: error retweet")
             failure(error as NSError)
         })
     }
+    
+    
+    // UNRETWEET
+    func unreTweet(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        let endpoint = "1.1/statuses/unretweet/\(id).json"
+        post(endpoint,
+             parameters: ["id": id],
+             progress: nil,
+             success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("UNRETWEET: error unretweet")
+            failure(error as NSError)
+        })
+    }
+
+    
 
     
     // FAVORITE
