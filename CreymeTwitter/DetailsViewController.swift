@@ -117,12 +117,20 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
             }, failure: { (error) in
                 print("error retweet")
             })
+        } else {
+        
+            self.tweet.isretweeted = false
+            self.retweetCountIconButton.setImage(UIImage(named: ""), for: .normal)
+            let newCount = Int(self.retweetCountLabel.text!)
+            self.retweetCountLabel.text = String(newCount! - 1)
+            
         }
     }
     
 
     // REPLY BUTTON TAP
     @IBAction func onReplyButton_Tap(_ sender: Any) {
+        tweetTextView.text = "@\(tweet.ownerScreenName ?? String()) "
         tweetTextView.becomeFirstResponder()
     }
     

@@ -55,7 +55,8 @@ class Tweet: NSObject {
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         
         isfavorite = (dictionary["favorited"] as? Bool)!
-        favoritesCount = (tweetOwner.value(forKeyPath:"favourites_count") as? Int) ?? 0
+        favoritesCount = (dictionary["favorite_count"] as? Int) ?? 0
+        replyCount = (dictionary["favorite_count"] as? Int) ?? 0
         
          }
     

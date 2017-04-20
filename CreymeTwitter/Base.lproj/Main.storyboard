@@ -492,13 +492,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGH-Eg-vJ0">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGH-Eg-vJ0">
                                             <rect key="frame" x="62" y="162" width="23" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="23" id="Cif-nW-srt"/>
                                                 <constraint firstAttribute="height" constant="25" id="j46-AU-gkg"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="reply-action_0.png"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <state key="normal" backgroundImage="reply-action_0.png">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
                                             <connections>
                                                 <action selector="onReplyButton_Tap:" destination="1Mo-Au-RcY" eventType="touchUpInside" id="Ed9-Z4-nfk"/>
                                             </connections>
@@ -509,13 +512,16 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-SO-vFX">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-SO-vFX">
                                             <rect key="frame" x="169" y="163" width="24" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="23" id="FEA-ap-LHc"/>
                                                 <constraint firstAttribute="width" constant="24" id="oWc-zn-0Qh"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="retweet-action.png"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <state key="normal" backgroundImage="retweet-action.png">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
                                             <connections>
                                                 <action selector="onRetweetButton_Tap:" destination="1Mo-Au-RcY" eventType="touchUpInside" id="Inn-do-1lX"/>
                                             </connections>
@@ -532,7 +538,10 @@
                                                 <constraint firstAttribute="height" constant="24" id="95M-Pp-H0V"/>
                                                 <constraint firstAttribute="width" constant="18" id="VZi-Ly-AVW"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="like-action.png"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <state key="normal" backgroundImage="like-action.png">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
                                             <connections>
                                                 <action selector="onLikeButton_Tap:" destination="1Mo-Au-RcY" eventType="touchUpInside" id="Mm4-CX-XKJ"/>
                                             </connections>
@@ -641,7 +650,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTweetSendButton:" destination="GJQ-QF-kge" eventType="touchUpInside" id="pWd-mB-9lZ"/>
+                                            <action selector="onTweetSendButton:" destination="1Mo-Au-RcY" eventType="touchUpInside" id="1rd-JP-Sht"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply-action_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="7hi-JL-tZB">
@@ -701,9 +710,10 @@
                         <outlet property="likeCountIconButton" destination="PnT-Jk-hAR" id="kFN-iA-rJo"/>
                         <outlet property="likeCountLabel" destination="hRe-kP-P91" id="93W-NE-rec"/>
                         <outlet property="profileImageView" destination="qcL-Wh-K8e" id="aSj-fk-701"/>
+                        <outlet property="replyCountIconButton" destination="zGH-Eg-vJ0" id="s77-7x-KRy"/>
                         <outlet property="replyCountLabel" destination="6bJ-IF-n0C" id="bNW-An-wF1"/>
                         <outlet property="replyToLabel" destination="xji-aW-jeb" id="xPT-dN-sXA"/>
-                        <outlet property="retweetCountIconButton" destination="jxy-SO-vFX" id="Pnv-YB-lDL"/>
+                        <outlet property="retweetCountIconButton" destination="jxy-SO-vFX" id="HmQ-0f-Gnf"/>
                         <outlet property="retweetCountLabel" destination="Bac-TM-Mu9" id="ShE-6L-hqx"/>
                         <outlet property="retweetedNameLabel" destination="xji-aW-jeb" id="MGD-aE-Poh"/>
                         <outlet property="tweetBarView" destination="LUv-hb-3fz" id="WAc-0z-cCg"/>

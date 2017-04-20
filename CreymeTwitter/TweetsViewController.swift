@@ -58,6 +58,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }, failure: { (error) in
             print(error.localizedDescription)
         })
+        
+        
     }
 
     
@@ -144,7 +146,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
         cell.tweet = self.tweets[indexPath.row]
-  
+        
+        
         return cell
     }
   

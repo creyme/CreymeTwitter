@@ -75,6 +75,7 @@ class TweetsCell: UITableViewCell {
 
             tweetTextLabel.text = tweet.text
             
+            retweetCountLabel.text = String("\(tweet.retweetCount)")
             let isretweet = tweet.isretweeted
                 if isretweet {
                     retweetCountIconView.image = UIImage(named: "retweet-action-on.png")
@@ -85,15 +86,15 @@ class TweetsCell: UITableViewCell {
                     retweetedNameLabel.isHidden = true
                     retweetedIconView.isHidden = true
             }
-            retweetCountLabel.text = String(tweet.retweetCount)
             
+            likeCountLabel.text = String("\(tweet.favoritesCount)")
             let islike = tweet.isfavorite
             if islike {
                 likeCountIconView.image = UIImage(named: "like-action-on.png")
             } else {
                 likeCountIconView.image = UIImage(named: "like-action.png")
             }
-            likeCountLabel.text = String(tweet.favoritesCount)
+            
             
             
             
@@ -110,6 +111,7 @@ class TweetsCell: UITableViewCell {
         
         profileImageView.layer.cornerRadius = 4
         
+                
         
     }
 

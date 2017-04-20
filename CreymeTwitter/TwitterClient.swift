@@ -134,6 +134,28 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    
+    // GET MORE INFO ON TWEETS
+    func tweetInfo(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
+        let endpoint = "statuses/lookup.json?id=20,\(id)"
+        get(endpoint,
+            parameters: ["id": id],
+            progress: nil,
+            success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("GET TWEETS: error getting tweets")
+            failure(error as NSError)
+        })
+    }
+    
+    
+    
+    
     // POST NEW TWEETS
     func newTweet(text: String, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
         
@@ -142,8 +164,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             progress: nil,
             success: { (task:URLSessionDataTask, response: Any?) in
                 
-                let tweets = Tweet(dictionary: response as! NSDictionary)
-                success(tweets)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
@@ -157,12 +179,12 @@ class TwitterClient: BDBOAuth1SessionManager {
     func replyTweet(text: String, id: Int, success: @escaping (Tweet) -> (), failure: @escaping (NSError) -> ()) {
         
         post("1.1/statuses/update.json",
-            parameters: ["status": text, "id": id],
+            parameters: ["status": text, "in_reply_to_status_id": id],
             progress: nil,
             success: { (task:URLSessionDataTask, response: Any?) in
                 
-                let tweets = Tweet(dictionary: response as! NSDictionary)
-                success(tweets)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
@@ -180,8 +202,8 @@ class TwitterClient: BDBOAuth1SessionManager {
              progress: nil,
              success: { (task:URLSessionDataTask, response: Any?) in
                 
-                let tweets = Tweet(dictionary: response as! NSDictionary)
-                success(tweets)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
@@ -199,8 +221,8 @@ class TwitterClient: BDBOAuth1SessionManager {
              progress: nil,
              success: { (task:URLSessionDataTask, response: Any?) in
                 
-                let tweets = Tweet(dictionary: response as! NSDictionary)
-                success(tweets)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
@@ -218,8 +240,8 @@ class TwitterClient: BDBOAuth1SessionManager {
              progress: nil,
              success: { (task:URLSessionDataTask, response: Any?) in
                 
-                let tweets = Tweet(dictionary: response as! NSDictionary)
-                success(tweets)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             
@@ -229,7 +251,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     
-   
+
 
     
     
