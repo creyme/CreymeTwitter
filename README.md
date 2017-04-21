@@ -36,10 +36,11 @@ The following **additional** features are implemented:
 
 
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+**UPDATED 4/20/17**
+Completed optional functionalities:
+- [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
+- [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
-1.
-2.
 
 ## Video Walkthrough
 
