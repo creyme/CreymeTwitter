@@ -113,6 +113,7 @@ class TweetsCell: UITableViewCell {
         super.awakeFromNib()
         
         profileImageView.layer.cornerRadius = 4
+
         
                 
         

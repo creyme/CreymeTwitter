@@ -114,10 +114,10 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     
     // GET TWEETS
-    func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
+    func homeTimeline(offset: Int, success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
         
         get("1.1/statuses/home_timeline.json",
-            parameters: nil,
+            parameters: ["count": offset],
             progress: nil,
             success: { (task:URLSessionDataTask, response: Any?) in
             
@@ -133,6 +133,29 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error as NSError) 
         })
     }
+    
+    
+    // LOAD MORE TWEETS
+    func loadMoreHomeTimeline(offset: Int, lastTweet: Int?, success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
+        
+        get("1.1/statuses/home_timeline.json",
+            parameters: ["count": offset, "max_id": lastTweet],
+            progress: nil,
+            success: { (task:URLSessionDataTask, response: Any?) in
+                
+                let dictionaries = response as! [NSDictionary]
+                
+                let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+                
+                success(tweets)
+                
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            
+            print("GET TWEETS: error getting tweets")
+            failure(error as NSError)
+        })
+    }
+
     
     
     // GET MORE INFO ON TWEETS

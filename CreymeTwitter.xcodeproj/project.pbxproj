@@ -11,6 +11,7 @@
 		4C038B961E9FFFA70033FBF2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C038B951E9FFFA70033FBF2 /* Tweet.swift */; };
 		4C038B981EA029FE0033FBF2 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C038B971EA029FE0033FBF2 /* TwitterClient.swift */; };
 		4C038B9A1EA052880033FBF2 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C038B991EA052880033FBF2 /* TweetsViewController.swift */; };
+		4C4D8ABB1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D8ABA1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift */; };
 		4C7231351EA1D92000A4D2E1 /* Twitter_logo_blue_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7231341EA1D92000A4D2E1 /* Twitter_logo_blue_48.png */; };
 		4C7231371EA1D94900A4D2E1 /* Twitter_logo_white_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7231361EA1D94900A4D2E1 /* Twitter_logo_white_48.png */; };
 		4C7231391EA1D95B00A4D2E1 /* like-action.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7231381EA1D95B00A4D2E1 /* like-action.png */; };
@@ -38,6 +39,7 @@
 		4C038B951E9FFFA70033FBF2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		4C038B971EA029FE0033FBF2 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		4C038B991EA052880033FBF2 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		4C4D8ABA1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		4C7231341EA1D92000A4D2E1 /* Twitter_logo_blue_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue_48.png; sourceTree = "<group>"; };
 		4C7231361EA1D94900A4D2E1 /* Twitter_logo_white_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_white_48.png; sourceTree = "<group>"; };
 		4C7231381EA1D95B00A4D2E1 /* like-action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like-action.png"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				4CC0DEC41E9F3A2900455DFE /* Assets.xcassets */,
 				4CC0DEC61E9F3A2900455DFE /* LaunchScreen.storyboard */,
 				4CC0DEC91E9F3A2900455DFE /* Info.plist */,
+				4C4D8ABA1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift */,
 			);
 			path = CreymeTwitter;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				4C038B961E9FFFA70033FBF2 /* Tweet.swift in Sources */,
 				4CC0DEBE1E9F3A2900455DFE /* AppDelegate.swift in Sources */,
 				4C038B9A1EA052880033FBF2 /* TweetsViewController.swift in Sources */,
+				4C4D8ABB1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift in Sources */,
 				4C038B981EA029FE0033FBF2 /* TwitterClient.swift in Sources */,
 				4CEFEB9D1E9F3C9B00D4D07C /* LogInViewController.swift in Sources */,
 				4CA998D51EA35E6A0055A4E3 /* NewTweetViewController.swift in Sources */,
