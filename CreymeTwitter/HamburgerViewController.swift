@@ -18,6 +18,12 @@ class HamburgerViewController: UIViewController {
     
     // VAARIABLES
     var originalMargin: CGFloat!
+    var menuViewController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            menuView.addSubview(menuViewController.view)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
