@@ -32,7 +32,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         // UI
-        self.twitterLogo()
+        //self.twitterLogo()
         let twitterLogo = UIImage(named: "Twitter_logo_white_48.png")
         let logoImage = UIImageView(image: twitterLogo)
         logoImage.frame.size.width = 32

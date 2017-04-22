@@ -24,11 +24,30 @@ class HamburgerViewController: UIViewController {
             menuView.addSubview(menuViewController.view)
         }
     }
+    var contentViewController: UIViewController! {
+        didSet(oldContentViewController) {
+            view.layoutIfNeeded()
+            
+            if oldContentViewController != nil {
+                oldContentViewController.willMove(toParentViewController: nil)
+                oldContentViewController.view.removeFromSuperview()
+                oldContentViewController.didMove(toParentViewController: nil)
+            }
+            
+            contentViewController.willMove(toParentViewController: self)
+            contentView.addSubview(contentViewController.view)
+            contentViewController.didMove(toParentViewController: self)
+            UIView.animate(withDuration: 0.3) { 
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        menuView.layer.shadowOpacity = 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +71,7 @@ class HamburgerViewController: UIViewController {
             
             UIView.animate(withDuration: 0.3, animations: { 
                 if velocity.x > 0 {
-                    self.leftMarginConstraint.constant = self.view.frame.size.width - 50
+                    self.leftMarginConstraint.constant = self.view.frame.size.width - 70
                 } else {
                     self.leftMarginConstraint.constant = 0
                 }

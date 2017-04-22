@@ -20,6 +20,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var viewControllers: [UIViewController] = []
     
+    var hamburgerViewController: HamburgerViewController!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +33,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // UIVIEWCONTROLLERS SETTINGS
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        profileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
-        homeNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsViewController")
-        mentionsNavigationController = storyboard.instantiateViewController(withIdentifier: "MentionsViewController")
+        profileNavigationController = storyboard.instantiateViewController(withIdentifier: "profileNavigationController")
+        homeNavigationController = storyboard.instantiateViewController(withIdentifier: "tweetsNavigationController")
+        mentionsNavigationController = storyboard.instantiateViewController(withIdentifier: "mentionsNavigationController")
         
             // Add viewcontrollers to array
             viewControllers.append(profileNavigationController)
             viewControllers.append(homeNavigationController)
             viewControllers.append(mentionsNavigationController)
+        
+        // Set first view controller
+        hamburgerViewController.contentViewController = homeNavigationController
         
 
         // Do any additional setup after loading the view.
@@ -62,12 +68,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    /* Did select cell
+    // Did select cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        
     }
-    */
+    
     
     
     override func didReceiveMemoryWarning() {
