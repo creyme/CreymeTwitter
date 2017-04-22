@@ -135,7 +135,7 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
 
     // REPLY BUTTON TAP
     @IBAction func onReplyButton_Tap(_ sender: Any) {
-        tweetTextView.text = "@\(tweet.ownerScreenName ?? String()) "
+        tweetTextView.text = "@\(tweet.ownerScreenName ?? String()): "
         tweetTextView.becomeFirstResponder()
     }
     
@@ -151,6 +151,7 @@ class DetailsViewController: UIViewController, UITextViewDelegate {
             // POST
             TwitterClient.sharedInstance?.replyTweet(text: tweetTextView.text, id: tweet.id, success: { (tweet) in
                 self.tweet = tweet
+                self.tweetTextView.text = ""
                 print("success reply")
                 self.tweetTextView.resignFirstResponder()
                 
