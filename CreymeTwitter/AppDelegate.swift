@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        if User.currentUser != nil {
+        /*if User.currentUser != nil {
             
             print("User is still logged in")
             
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vc
             
-        }
+        }*/
         
         return true
     }

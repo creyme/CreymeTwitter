@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oT2-2Q-7YD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -731,6 +731,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bv-c0-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1848.8" y="829.83508245877067"/>
+        </scene>
+        <!--Hamburger View Controller-->
+        <scene sceneID="Fzv-Hy-0FJ">
+            <objects>
+                <viewController id="oT2-2Q-7YD" customClass="HamburgerViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bHo-jT-sLe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z3a-c9-aed"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foF-qd-7xu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Wb-iN-doM" userLabel="Menu View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylR-6t-4ly" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bsP-U1-iKB" appends="YES" id="l5D-Si-hnc"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ylR-6t-4ly" firstAttribute="width" secondItem="foF-qd-7xu" secondAttribute="width" id="Cwr-VO-mSe"/>
+                            <constraint firstItem="8Wb-iN-doM" firstAttribute="top" secondItem="foF-qd-7xu" secondAttribute="top" id="DBB-KW-bpN"/>
+                            <constraint firstAttribute="trailing" secondItem="8Wb-iN-doM" secondAttribute="trailing" id="KRG-rF-QcS"/>
+                            <constraint firstItem="8Wb-iN-doM" firstAttribute="leading" secondItem="foF-qd-7xu" secondAttribute="leading" id="Obx-KJ-ksG"/>
+                            <constraint firstItem="ylR-6t-4ly" firstAttribute="leading" secondItem="foF-qd-7xu" secondAttribute="leading" id="XAS-nR-Zas"/>
+                            <constraint firstItem="Z3a-c9-aed" firstAttribute="top" secondItem="8Wb-iN-doM" secondAttribute="bottom" id="aXw-mi-Ggx"/>
+                            <constraint firstItem="Z3a-c9-aed" firstAttribute="top" secondItem="ylR-6t-4ly" secondAttribute="bottom" id="cmb-Dt-4cl"/>
+                            <constraint firstItem="ylR-6t-4ly" firstAttribute="top" secondItem="foF-qd-7xu" secondAttribute="top" id="iRz-6J-2BV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="ylR-6t-4ly" id="L35-1m-XIp"/>
+                        <outlet property="leftMarginConstraint" destination="XAS-nR-Zas" id="Lyc-XP-QMR"/>
+                        <outlet property="menuView" destination="8Wb-iN-doM" id="ilZ-O5-ldi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IuL-wr-qfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bsP-U1-iKB">
+                    <connections>
+                        <action selector="onPanGesture:" destination="oT2-2Q-7YD" id="Era-hL-gCD"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="909.60000000000002" y="-581.55922038980509"/>
         </scene>
         <!--Main Nav View Controller-->
         <scene sceneID="yMt-Fp-BzD">
