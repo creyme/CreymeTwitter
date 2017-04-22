@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -270,12 +270,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="qv2-mB-gXI">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="edk-Zw-JAU">
+                        <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="edk-Zw-JAU">
                             <connections>
                                 <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="LUg-hP-8iP"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New" id="uMl-Iv-whI">
+                        <barButtonItem key="rightBarButtonItem" image="NewTweetIcon.png" id="uMl-Iv-whI">
                             <connections>
                                 <segue destination="ReL-zV-27B" kind="presentation" identifier="newTweetSegue" id="rGB-Lg-DIe"/>
                             </connections>
@@ -770,6 +770,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MenuTweetIcon.png" width="40" height="40"/>
+        <image name="NewTweetIcon.png" width="40" height="40"/>
         <image name="Twitter_Logo_White_On_Image.png" width="400" height="400"/>
         <image name="Twitter_logo_white_48.png" width="48" height="48"/>
         <image name="like-action.png" width="54" height="72"/>
