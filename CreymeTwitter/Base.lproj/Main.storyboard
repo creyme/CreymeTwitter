@@ -445,7 +445,29 @@
                     <view key="view" contentMode="scaleToFill" id="vLq-OI-Ttt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bQ5-xo-rhB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="meU-6B-tP6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="meU-6B-tP6" id="I8q-U8-vJI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bQ5-xo-rhB" firstAttribute="top" secondItem="vLq-OI-Ttt" secondAttribute="top" id="70E-A1-QeR"/>
+                            <constraint firstAttribute="trailing" secondItem="bQ5-xo-rhB" secondAttribute="trailing" id="C3e-x2-OIu"/>
+                            <constraint firstItem="hLq-el-7Xz" firstAttribute="top" secondItem="bQ5-xo-rhB" secondAttribute="bottom" id="EmU-qv-8zV"/>
+                            <constraint firstItem="bQ5-xo-rhB" firstAttribute="leading" secondItem="vLq-OI-Ttt" secondAttribute="leading" id="nIF-7I-MIV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="g3I-qD-irf">
                         <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="b3E-GG-2YW">
@@ -928,10 +950,10 @@
             </objects>
             <point key="canvasLocation" x="2743" y="139"/>
         </scene>
-        <!--Main Nav View Controller-->
+        <!--Trans Nav View Controller-->
         <scene sceneID="cdG-vC-Utc">
             <objects>
-                <navigationController storyboardIdentifier="profileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5qu-g2-JCr" customClass="MainNavViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="profileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5qu-g2-JCr" customClass="TransNavViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cU1-dM-JgN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
