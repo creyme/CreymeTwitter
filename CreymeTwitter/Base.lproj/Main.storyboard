@@ -283,7 +283,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="6Sf-MA-drF" id="jMn-He-Rnq"/>
-                        <segue destination="5qu-g2-JCr" kind="show" identifier="tweetOwnerProfilesSegue" id="29h-AE-DBY"/>
+                        <segue destination="5qu-g2-JCr" kind="show" identifier="tweetOwnerProfilesNavSegue" id="29h-AE-DBY"/>
+                        <segue destination="FYt-HS-xId" kind="show" identifier="tweetOwnerProfilesSegue" action="showDetailViewController:sender:" id="hbg-nF-JBw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQZ-Wx-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1122,5 +1123,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rGB-Lg-DIe"/>
+        <segue reference="hbg-nF-JBw"/>
     </inferredMetricsTieBreakers>
 </document>

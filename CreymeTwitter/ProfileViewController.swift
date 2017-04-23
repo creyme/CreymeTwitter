@@ -32,17 +32,33 @@ class ProfileViewController: UIViewController {
     var tweet: Tweet!
     var currentUser: User!
     
+    var isCurrentUser = true
+    
     
     // DEFAULT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Customize Appearance
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isTranslucent = true
+ 
+        
         // HEADER UI:
         bgImageViewView.layer.cornerRadius = 6
         profileImageView.layer.cornerRadius = 4
         
-        loadCurrentUser()
-
+        if isCurrentUser {
+            loadCurrentUser()
+        } else {
+            loadTweetOwner()
+        }
+        
     }
     
     // CURRENT USER FUNCTIONS
@@ -67,10 +83,10 @@ class ProfileViewController: UIViewController {
         }, failure: { (error) in
             print(error.localizedDescription)
         })
-        
-        
-        
-
+        }
+    
+    func loadTweetOwner() {
+        print("loading tweet owner profile")
         
     }
 

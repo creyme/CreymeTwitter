@@ -18,7 +18,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // VARIABLES
     var tweets: [Tweet]!
-    var tweetArray = [Tweet]()
+    var tweetArray: Tweet!
     var currentTweetDetails: Tweet!
     var offset = 0
     var lastTweetId = 0
@@ -231,16 +231,29 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tap.numberOfTapsRequired = 1
         cell.profileImageView.isUserInteractionEnabled = true
         cell.profileImageView.addGestureRecognizer(tap)
-
+        // assign indexes of buttons
+        cell.profileImageView.tag = indexPath.row
         
         return cell
     }
     
-    func goToUserProfile(_ recognizer: UITapGestureRecognizer) {
+    func goToUserProfile(_ sender: UITapGestureRecognizer) {
         print("tapped tweet owner image")
-        performSegue(withIdentifier: "tweetOwnerProfilesSegue", sender: self)
+        //performSegue(withIdentifier: "tweetOwnerProfilesNavSegue", sender: sender)
+        //shouldPerformSegue(withIdentifier: "tweetOwnerProfilesNavSegue", sender: sender)
+    
+        
+        
+        /*if let indexPath = tableView.indexPathForSelectedRow {
+            tweetArray = self.tweets[indexPath.row]
+            print(tweetArray.ownerName ?? String())*/
+            
+            //let tweeterProfile = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            //self.navigationController?.pushViewController(tweeterProfile, animated: true)
+            performSegue(withIdentifier: "tweetOwnerProfilesNavSegue", sender: sender)
+            
     }
-  
+
     
     
      // MARK: - Navigation
@@ -259,15 +272,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destination.tweet = self.tweets[indexPath.row]
             }
             
-        } else if segue.identifier == "tweetOwnerProfilesSegue" {
+        } else if segue.identifier == "tweetOwnerProfilesNavSegue" {
+            let tap = sender as! UITapGestureRecognizer
+            let cell = tap.view?.superview?.superview as! TweetsCell
+            let indexPath = tableView.indexPath(for: cell)
+            let tweeterProfile = tweets[indexPath!.row]
+
             let destination = segue.destination as! UINavigationController
             let vc = destination.topViewController as! ProfileViewController
-            if let indexPath = tableView.indexPathForSelectedRow {
-                //destination.tweet = self.tweets[indexPath.row]
-            }
+                print("tweetOwnerProfilesSegue")
+                vc.tweet = tweeterProfile
+                vc.isCurrentUser = false
 
         }
      }
+    
+    
+    
     
 }
 
