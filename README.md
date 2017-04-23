@@ -2,9 +2,8 @@
 
 **CreymeTwitter** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **22** hours spent in total
-
 ## Project 3 User Stories
+Time spent: **22** hours spent in total
 
 The following **required** functionality is completed:
 
@@ -39,9 +38,8 @@ Completed optional functionalities:
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
-Time spent: **2** hours spent in total
-
 ## Project 4 User Stories
+Time spent: **2** hours spent in total
 
 The following **required** functionality is completed:
 
