@@ -531,6 +531,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LocationTweetIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-Fx-0Er">
+                                                    <rect key="frame" x="5" y="124" width="15" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1076,6 +1080,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LocationTweetIcon.png" width="40" height="40"/>
         <image name="MenuTweetIcon.png" width="40" height="40"/>
         <image name="NewTweetIcon.png" width="40" height="40"/>
         <image name="Twitter_Logo_White_On_Image.png" width="400" height="400"/>
