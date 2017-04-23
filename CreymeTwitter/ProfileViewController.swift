@@ -31,6 +31,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // HEADER UI:
+        bgImageViewView.layer.cornerRadius = 6
+        profileImageView.layer.cornerRadius = 4
+        
 
         
 
