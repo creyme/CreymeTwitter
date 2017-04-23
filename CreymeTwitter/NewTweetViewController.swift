@@ -50,6 +50,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
         // LOAD CURRENT USER
         loadCurrentUser()
+        profilePicTap()
 
     }
     
@@ -160,14 +161,20 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToUserProfile(_:)))
         tap.numberOfTapsRequired = 1
+        profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(tap)
     }
     
     func goToUserProfile(_ recognizer: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "goToUserProfileSegue", sender: self)
+        print("segue")
+        //profileNavigationController
+        self.dismiss(animated: true) { 
+            let userProfile = self.storyboard?.instantiateViewController(withIdentifier: "profileNavigationController") as! UINavigationController
+            self.navigationController?.pushViewController(userProfile, animated: true)
+        }
+        
+    
     }
-    
-    
     // TWEETBAR FUNCTIONS
     
     func populateNewTweet() -> Tweet {

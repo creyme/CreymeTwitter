@@ -283,6 +283,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="6Sf-MA-drF" id="jMn-He-Rnq"/>
+                        <segue destination="5qu-g2-JCr" kind="show" identifier="tweetOwnerProfilesSegue" id="29h-AE-DBY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQZ-Wx-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,7 +429,6 @@
                         <outlet property="tweetTextViewPlaceholder" destination="XMn-oE-L4I" id="NKK-4M-vbf"/>
                         <outlet property="userFullNameLabel" destination="eAu-RD-mJe" id="1Ng-6e-JFe"/>
                         <outlet property="userScreenNameLabel" destination="m7E-Ip-OwD" id="8I9-sb-UZk"/>
-                        <segue destination="5qu-g2-JCr" kind="show" identifier="goToUserProfileSegue" id="oq9-Ie-mOs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS9-LF-xf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1070,7 +1070,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CE1-B9-Dd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2743" y="139"/>
+            <point key="canvasLocation" x="2754" y="139"/>
         </scene>
         <!--Trans Nav View Controller-->
         <scene sceneID="cdG-vC-Utc">

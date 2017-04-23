@@ -63,6 +63,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var insets = tableView.contentInset
         insets.bottom += InfiniteScrollActivityView.defaultHeight
         tableView.contentInset = insets
+        
+        
 
     }
     
@@ -224,9 +226,19 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell", for: indexPath) as! TweetsCell
         cell.tweet = self.tweets[indexPath.row]
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(goToUserProfile(_:)))
+        tap.numberOfTapsRequired = 1
+        cell.profileImageView.isUserInteractionEnabled = true
+        cell.profileImageView.addGestureRecognizer(tap)
 
         
         return cell
+    }
+    
+    func goToUserProfile(_ recognizer: UITapGestureRecognizer) {
+        print("tapped tweet owner image")
+        performSegue(withIdentifier: "tweetOwnerProfilesSegue", sender: self)
     }
   
     
@@ -246,6 +258,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let indexPath = tableView.indexPathForSelectedRow {
             destination.tweet = self.tweets[indexPath.row]
             }
+            
+        } else if segue.identifier == "tweetOwnerProfilesSegue" {
+            let destination = segue.destination as! UINavigationController
+            let vc = destination.topViewController as! ProfileViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                //destination.tweet = self.tweets[indexPath.row]
+            }
+
         }
      }
     
