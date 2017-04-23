@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oT2-2Q-7YD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -434,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="3663.1999999999998" y="138.98050974512745"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="WGW-fT-5N4">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="FYt-HS-xId" customClass="ProfileViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -447,7 +447,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ULS-Ch-fSm"/>
+                    <navigationItem key="navigationItem" title="Profile" id="g3I-qD-irf">
+                        <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="b3E-GG-2YW">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="71C-u9-tWm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="NewTweetIcon.png" id="z4D-CT-ZtD">
+                            <connections>
+                                <segue destination="ReL-zV-27B" kind="presentation" id="XXe-n2-nuj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq4-jv-SZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -899,10 +910,10 @@
             </objects>
             <point key="canvasLocation" x="911" y="139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Nav View Controller-->
         <scene sceneID="Mqg-0A-u0s">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ReL-zV-27B" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ReL-zV-27B" customClass="MainNavViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lbe-bK-6ve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -917,10 +928,10 @@
             </objects>
             <point key="canvasLocation" x="2743" y="139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Nav View Controller-->
         <scene sceneID="cdG-vC-Utc">
             <objects>
-                <navigationController storyboardIdentifier="profileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5qu-g2-JCr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="profileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5qu-g2-JCr" customClass="MainNavViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cU1-dM-JgN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -963,4 +974,7 @@
         <image name="reply-action_0.png" width="65" height="72"/>
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XXe-n2-nuj"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // UI
+        //self.twitterLogo()
+        let twitterLogo = UIImage(named: "Twitter_logo_white_48.png")
+        let logoImage = UIImageView(image: twitterLogo)
+        logoImage.frame.size.width = 32
+        logoImage.frame.size.height = 32
+        logoImage.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = logoImage
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

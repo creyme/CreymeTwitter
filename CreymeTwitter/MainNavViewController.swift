@@ -19,6 +19,8 @@ class MainNavViewController: UINavigationController {
         self.navigationBar.tintColor = .white
         self.navigationBar.barStyle = .blackOpaque
         
+        
+        
                
     }
 

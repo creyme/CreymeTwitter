@@ -40,6 +40,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         logoImage.contentMode = .scaleAspectFit
         self.navigationItem.titleView = logoImage
         
+        // LOAD TWEETS
+        loadTweets()
+        
         // TABLEVIEW SETTINGS
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,16 +67,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // LOAD TWEETS
-        TwitterClient.sharedInstance?.homeTimeline(offset: offset, success: { (tweets) in
-            self.tweets = tweets
-            self.tableView.reloadData()
-            for i in tweets {
-                print (i.id)
-            }
-        }, failure: { (error) in
-            print(error.localizedDescription)
-        })
         
         
     }
@@ -141,6 +134,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print(error.localizedDescription)
         })
     }
+    
+    
+    // LOAD TWEETS
+    func loadTweets() {
+        TwitterClient.sharedInstance?.homeTimeline(offset: offset, success: { (tweets) in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            for i in tweets {
+                print (i.id)
+            }
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+    }
+
+    
+    
     
     // LOAD MORE
     func loadMore() {
