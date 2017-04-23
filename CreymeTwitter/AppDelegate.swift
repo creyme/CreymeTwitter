@@ -24,12 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             print("User is still logged in")
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "tweetsNavigationController")
-            window?.rootViewController = vc
+            window?.rootViewController = vc*/
+            
+            // HAMBURGER MENU SETTING
+            let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+ 
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+ 
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
 
         } else {
-            
+ 
             print("No saved user")
         }
         
@@ -51,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         hamburgerViewController.menuViewController = menuViewController
         // */
         
-        
+        //HamburgerViewController
         
         
         
