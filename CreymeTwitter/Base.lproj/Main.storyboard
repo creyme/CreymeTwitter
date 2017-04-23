@@ -581,7 +581,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g3I-qD-irf">
-                        <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="b3E-GG-2YW">
+                        <barButtonItem key="leftBarButtonItem" image="backButton.png" id="b3E-GG-2YW">
                             <connections>
                                 <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="71C-u9-tWm"/>
                             </connections>
@@ -1116,13 +1116,14 @@
         <image name="NewTweetIcon.png" width="40" height="40"/>
         <image name="Twitter_Logo_White_On_Image.png" width="400" height="400"/>
         <image name="Twitter_logo_white_48.png" width="48" height="48"/>
+        <image name="backButton.png" width="40" height="40"/>
         <image name="like-action.png" width="54" height="72"/>
         <image name="mbg_Artboard 5.jpg" width="7906" height="5737"/>
         <image name="reply-action_0.png" width="65" height="72"/>
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rGB-Lg-DIe"/>
+        <segue reference="XXe-n2-nuj"/>
         <segue reference="hbg-nF-JBw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,15 +38,6 @@ class ProfileViewController: UIViewController {
     // DEFAULT
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Customize Appearance
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-        self.navigationController?.navigationBar.tintColor = .white
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.isTranslucent = true
  
         
         // HEADER UI:
