@@ -20,14 +20,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        /*if User.currentUser != nil {
+        
+        
+        if User.currentUser != nil {
             
             print("User is still logged in")
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "tweetsNavigationController")
+            let setstoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = setstoryboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
             window?.rootViewController = vc
+            
+            // HAMBURGER MENU SETTING
+            let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+ 
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+ 
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
 
+        } else {
+ 
+            print("No saved user")
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+            
+        }
+        
+        
+        
+        return true
+    }
+    
+    
+    func hamburgerMenu() {
+       
+        if User.currentUser != nil {
+            
+            print("User is still logged in")
+            
+            // HAMBURGER MENU SETTING
+            let setstoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = setstoryboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+            window?.rootViewController = vc
+            
+            let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
+            
         } else {
             
             print("No saved user")
@@ -39,24 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vc
             
-        }*/
+        }
+
         
-        // HAMBURGER MENU SETTING
-        let hamburgerViewController = window!.rootViewController as! HamburgerViewController
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-        
-        menuViewController.hamburgerViewController = hamburgerViewController
-        hamburgerViewController.menuViewController = menuViewController
-       
-        
-        
-        
-        
-        
-        return true
     }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

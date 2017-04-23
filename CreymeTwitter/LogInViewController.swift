@@ -49,7 +49,10 @@ class LogInViewController: UIViewController {
         
         TwitterClient.sharedInstance?.login(success: {
             print("wow, login success!")
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            // HAMBURGER MENU SETTING
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.hamburgerMenu()
+            //self.performSegue(withIdentifier: "loginSegue", sender: nil)
             
             
         }) { (error) in
