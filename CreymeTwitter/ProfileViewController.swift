@@ -10,10 +10,30 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    // HEADER OUTLETS: Details
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var bgImageViewView: UIView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
+    @IBOutlet weak var userFullNameLabel: UILabel!
+    @IBOutlet weak var userScreenNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followerCountLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // UI
+        
+
        
         
         
