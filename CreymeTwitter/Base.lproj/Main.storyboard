@@ -516,12 +516,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRV-fU-cM5">
-                                                    <rect key="frame" x="102" y="149" width="8" height="15"/>
+                                                    <rect key="frame" x="114" y="149" width="8" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWERS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpC-tA-1bT">
-                                                    <rect key="frame" x="114" y="149" width="72" height="15"/>
+                                                    <rect key="frame" x="126" y="149" width="72" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -535,12 +535,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="53s-6o-aAV" secondAttribute="trailing" constant="8" id="32b-ar-m6u"/>
                                                 <constraint firstItem="Si6-cr-KBd" firstAttribute="leading" secondItem="53s-6o-aAV" secondAttribute="leading" id="ED2-5Z-7Eu"/>
                                                 <constraint firstItem="eh7-MG-rBl" firstAttribute="centerY" secondItem="hZA-Fx-0Er" secondAttribute="centerY" id="H1T-7O-moy"/>
+                                                <constraint firstItem="hZA-Fx-0Er" firstAttribute="leading" secondItem="kDN-nd-hn4" secondAttribute="leading" constant="5" id="JXa-a4-3hW"/>
                                                 <constraint firstItem="2Dy-kp-Woy" firstAttribute="top" secondItem="kDN-nd-hn4" secondAttribute="top" constant="52" id="LOn-3c-zf4"/>
                                                 <constraint firstItem="uRV-fU-cM5" firstAttribute="centerY" secondItem="y1t-dO-YN2" secondAttribute="centerY" id="Qm0-Yc-JL3"/>
                                                 <constraint firstItem="y1t-dO-YN2" firstAttribute="centerY" secondItem="Si6-cr-KBd" secondAttribute="centerY" id="RIP-gi-ia0"/>
                                                 <constraint firstItem="eh7-MG-rBl" firstAttribute="top" secondItem="53s-6o-aAV" secondAttribute="bottom" constant="12" id="UkX-5c-Y6P"/>
                                                 <constraint firstItem="53s-6o-aAV" firstAttribute="leading" secondItem="BrO-cf-xxl" secondAttribute="leading" id="XQW-CV-eYZ"/>
-                                                <constraint firstItem="Si6-cr-KBd" firstAttribute="centerX" secondItem="hZA-Fx-0Er" secondAttribute="centerX" id="Y9g-ao-Q9d"/>
                                                 <constraint firstItem="y1t-dO-YN2" firstAttribute="leading" secondItem="Si6-cr-KBd" secondAttribute="trailing" constant="4" id="ZnN-Zt-SOx"/>
                                                 <constraint firstItem="IpC-tA-1bT" firstAttribute="centerY" secondItem="uRV-fU-cM5" secondAttribute="centerY" id="a3c-oz-L4I"/>
                                                 <constraint firstItem="BrO-cf-xxl" firstAttribute="leading" secondItem="2Dy-kp-Woy" secondAttribute="leading" id="a8k-Ju-0nk"/>
@@ -548,7 +548,7 @@
                                                 <constraint firstItem="2Dy-kp-Woy" firstAttribute="leading" secondItem="kDN-nd-hn4" secondAttribute="leading" constant="8" id="bWd-am-3Ys"/>
                                                 <constraint firstItem="BrO-cf-xxl" firstAttribute="top" secondItem="2Dy-kp-Woy" secondAttribute="bottom" constant="2" id="vgg-7N-6VX"/>
                                                 <constraint firstAttribute="bottom" secondItem="Si6-cr-KBd" secondAttribute="bottom" constant="12" id="zua-ZW-TMk"/>
-                                                <constraint firstItem="uRV-fU-cM5" firstAttribute="leading" secondItem="y1t-dO-YN2" secondAttribute="trailing" constant="12" id="zvV-57-bEV"/>
+                                                <constraint firstItem="uRV-fU-cM5" firstAttribute="leading" secondItem="y1t-dO-YN2" secondAttribute="trailing" constant="24" id="zvV-57-bEV"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -1122,6 +1122,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LRn-Oe-Of0"/>
-        <segue reference="rGB-Lg-DIe"/>
+        <segue reference="XXe-n2-nuj"/>
     </inferredMetricsTieBreakers>
 </document>

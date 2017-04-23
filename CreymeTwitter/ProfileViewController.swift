@@ -42,13 +42,10 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = 4
         
         loadCurrentUser()
-        
-        
-        
-     
+
     }
     
-    
+    // CURRENT USER FUNCTIONS
     func loadCurrentUser() {
         
         TwitterClient.sharedInstance?.currentAccount(success: { (currentUser) in
@@ -62,6 +59,10 @@ class ProfileViewController: UIViewController {
             self.userFullNameLabel.text = currentUser.name
             self.userScreenNameLabel.text = "@\(currentUser.screenname ?? String())"
             self.descriptionLabel.text = currentUser.tagline
+            self.locationLabel.text = currentUser.location
+            self.followerCountLabel.text = String(describing: currentUser.followersCount) 
+            self.followingCountLabel.text = String(describing: currentUser.followingCount) 
+            
 
         }, failure: { (error) in
             print(error.localizedDescription)
