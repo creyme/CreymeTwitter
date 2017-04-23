@@ -156,6 +156,17 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    func profilePicTap() {
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(goToUserProfile(_:)))
+        tap.numberOfTapsRequired = 1
+        profileImageView.addGestureRecognizer(tap)
+    }
+    
+    func goToUserProfile(_ recognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "goToUserProfileSegue", sender: self)
+    }
+    
     
     // TWEETBAR FUNCTIONS
     

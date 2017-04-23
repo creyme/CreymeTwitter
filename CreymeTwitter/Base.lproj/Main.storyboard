@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5qu-g2-JCr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -272,7 +272,7 @@
                     <navigationItem key="navigationItem" title="Home" id="qv2-mB-gXI">
                         <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="edk-Zw-JAU">
                             <connections>
-                                <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="LUg-hP-8iP"/>
+                                <segue destination="5qu-g2-JCr" kind="show" id="LRn-Oe-Of0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="NewTweetIcon.png" id="uMl-Iv-whI">
@@ -327,7 +327,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="vxd-hs-LHA">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="vxd-hs-LHA">
                                 <rect key="frame" x="16" y="74" width="48" height="48"/>
                                 <color key="backgroundColor" red="0.33267149330000001" green="0.67360633609999998" blue="0.93191498520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -428,6 +428,7 @@
                         <outlet property="tweetTextViewPlaceholder" destination="XMn-oE-L4I" id="NKK-4M-vbf"/>
                         <outlet property="userFullNameLabel" destination="eAu-RD-mJe" id="1Ng-6e-JFe"/>
                         <outlet property="userScreenNameLabel" destination="m7E-Ip-OwD" id="8I9-sb-UZk"/>
+                        <segue destination="5qu-g2-JCr" kind="show" identifier="goToUserProfileSegue" id="oq9-Ie-mOs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS9-LF-xf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1120,6 +1121,7 @@
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XXe-n2-nuj"/>
+        <segue reference="LRn-Oe-Of0"/>
+        <segue reference="rGB-Lg-DIe"/>
     </inferredMetricsTieBreakers>
 </document>

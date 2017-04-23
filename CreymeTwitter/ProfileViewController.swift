@@ -27,8 +27,13 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-  
     
+    // HEADER VARIABLES
+    var tweet: Tweet!
+    var currentUser: User!
+    
+    
+    // DEFAULT
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,14 +41,38 @@ class ProfileViewController: UIViewController {
         bgImageViewView.layer.cornerRadius = 6
         profileImageView.layer.cornerRadius = 4
         
+        loadCurrentUser()
+        
+        
+        
+     
+    }
+    
+    
+    func loadCurrentUser() {
+        
+        TwitterClient.sharedInstance?.currentAccount(success: { (currentUser) in
+            self.currentUser = currentUser
+            if currentUser.profileUrl != nil {
+                self.profileImageView.setImageWith(URL(string: currentUser.profileUrl!)!)
+            } else {
+                self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            }
+            
+            self.userFullNameLabel.text = currentUser.name
+            self.userScreenNameLabel.text = "@\(currentUser.screenname ?? String())"
+            self.descriptionLabel.text = currentUser.tagline
 
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+        
+        
         
 
-       
-        
-        
         
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
