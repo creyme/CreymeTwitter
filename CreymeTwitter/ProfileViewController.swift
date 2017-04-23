@@ -45,8 +45,12 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = 4
         
         if isCurrentUser {
+            navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
+            navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
+            
             loadCurrentUser()
         } else {
+            navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
             loadTweetOwner()
         }
         
@@ -107,7 +111,10 @@ class ProfileViewController: UIViewController {
         
     }
 
-
+    @IBAction func backButtonTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
