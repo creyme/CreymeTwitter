@@ -46,10 +46,13 @@ class HamburgerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         menuView.layer.shadowOpacity = 1
+
+
+    
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -78,10 +78,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    /*/ LOGOUT
+    // LOGOUT
     @IBAction func onLogoutButton(_ sender: Any) {
         TwitterClient.sharedInstance?.logout()
-    }*/
+    }
     
     
     // LAUNCH FUNCTIONS

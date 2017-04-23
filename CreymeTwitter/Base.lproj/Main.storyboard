@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oT2-2Q-7YD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="BYZ-38-t0r" customClass="LogInViewController" customModule="CreymeTwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -93,7 +93,7 @@
                     <connections>
                         <outlet property="loginButton" destination="S0O-Gd-5b4" id="U0J-22-vfR"/>
                         <outlet property="twitterLogo" destination="xbC-Qz-r1z" id="Uvg-aD-25X"/>
-                        <segue destination="XK2-M0-x0R" kind="presentation" identifier="loginSegue" id="iFB-Xz-eu3"/>
+                        <segue destination="oT2-2Q-7YD" kind="presentation" identifier="loginSegue" id="DVf-dG-KeV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -272,7 +272,7 @@
                     <navigationItem key="navigationItem" title="Home" id="qv2-mB-gXI">
                         <barButtonItem key="leftBarButtonItem" image="MenuTweetIcon.png" id="edk-Zw-JAU">
                             <connections>
-                                <segue destination="5qu-g2-JCr" kind="show" id="LRn-Oe-Of0"/>
+                                <action selector="onLogoutButton:" destination="pkz-Hf-xFT" id="FGO-3d-4kJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="NewTweetIcon.png" id="uMl-Iv-whI">
@@ -1121,7 +1121,6 @@
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LRn-Oe-Of0"/>
-        <segue reference="XXe-n2-nuj"/>
+        <segue reference="rGB-Lg-DIe"/>
     </inferredMetricsTieBreakers>
 </document>
