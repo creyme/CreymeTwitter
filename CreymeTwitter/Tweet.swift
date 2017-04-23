@@ -14,9 +14,18 @@ class Tweet: NSObject {
     // STEP 1: ENUMERATE PROPERTIES: Variables for User details
     var user: User?
     var tweetOwner = NSDictionary()
+    
+    var profileImageUrl: String?
+    var backgroundImageUrl: String?
+    
     var ownerName: String?
     var ownerScreenName: String?
-    var profileImageUrl: String?
+    var tagline: String?
+    var location: String?
+    var tweetCount: Int = 0
+    var followersCount: Int = 0
+    var followingCount: Int = 0
+    
     var id: Int = 0
     var textId: String?
     var text: String?
@@ -34,10 +43,16 @@ class Tweet: NSObject {
         
         tweetOwner = (dictionary["user"] as? NSDictionary)!
         
+        profileImageUrl = tweetOwner.value(forKeyPath: "profile_image_url") as? String
+        backgroundImageUrl = tweetOwner.value(forKeyPath: "profile_background_image_url_https") as? String
+        
         ownerName = tweetOwner.value(forKeyPath: "name") as? String
         ownerScreenName = tweetOwner.value(forKeyPath: "screen_name") as? String
-        
-        profileImageUrl = tweetOwner.value(forKeyPath: "profile_image_url") as? String
+        tagline = tweetOwner.value(forKeyPath: "description") as? String
+        location = tweetOwner.value(forKeyPath: "location") as? String
+        tweetCount = tweetOwner.value(forKeyPath: "statuses_count") as? Int ?? 0
+        followersCount = tweetOwner.value(forKeyPath: "followers_count") as? Int ?? 0
+        followingCount = tweetOwner.value(forKeyPath: "friends_count") as? Int ?? 0
     
         id = (dictionary["id"] as? Int) ?? 0
         textId = dictionary["id_str"] as? String

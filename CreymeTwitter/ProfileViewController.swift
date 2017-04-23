@@ -71,6 +71,11 @@ class ProfileViewController: UIViewController {
             } else {
                 self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
             }
+            if currentUser.backgroundImageUrl != nil {
+                self.backgroundImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+            } else {
+                self.backgroundImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            }
             
             self.userFullNameLabel.text = currentUser.name
             self.userScreenNameLabel.text = "@\(currentUser.screenname ?? String())"
@@ -87,6 +92,27 @@ class ProfileViewController: UIViewController {
     
     func loadTweetOwner() {
         print("loading tweet owner profile")
+        
+        if tweet.profileImageUrl != nil {
+            self.profileImageView.setImageWith(URL(string: tweet.profileImageUrl!)!)
+        } else {
+            self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+        }
+        if tweet.backgroundImageUrl != nil {
+            self.backgroundImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+        } else {
+            self.backgroundImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+        }
+        
+        userFullNameLabel.text = tweet.ownerName
+        userScreenNameLabel.text = "@\(tweet.ownerScreenName ?? String())"
+        descriptionLabel.text = tweet.tagline
+        locationLabel.text = tweet.location
+        followerCountLabel.text = String(describing: tweet.followersCount)
+        followingCountLabel.text = String(describing: tweet.followingCount)
+        
+        
+        
         
     }
 
