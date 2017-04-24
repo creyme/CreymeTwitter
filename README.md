@@ -32,14 +32,27 @@ The following **additional** features are implemented:
 - [x] Sliding out textbox/ textbox attached to keyboard.
 - [ ] TableView of replies for the selected tweet in DetailsViewController.
 
-**UPDATED 4/20/17**
-Additional 3 hours
-Completed optional functionalities:
-- [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
-- [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://github.com/creyme/CreymeTwitter/blob/master/CREYMEYELP-required1.gif?raw=true' />
+
+<img src='https://github.com/creyme/CreymeTwitter/blob/master/CREYMEYELP-required3.gif?raw=true' />
+
+<img src='https://github.com/creyme/CreymeTwitter/blob/master/CREYMEYELP-required4.gif?raw=true' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Project 4 User Stories
 Time spent: **10** hours spent in total
+
+**UPDATED 4/20/17**
+Additional 3 hours
+
+Completed optional functionalities:
+- [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
+- [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 The following **required** functionality is completed:
 
@@ -56,8 +69,8 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] Profile Page
-   - [x] Implement the paging view for the user description.
-   - [x] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+   - [?] Implement the paging view for the user description.
+   - [?] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
    - [x] Pulling down the profile page should blur and resize the header image.
 - [ ] Account switching
    - [ ] Long press on tab bar to bring up Account view with animation
