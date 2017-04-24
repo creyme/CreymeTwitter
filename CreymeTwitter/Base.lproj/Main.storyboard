@@ -451,35 +451,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-eG-qbb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mbg_Artboard 5.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-tH-BVe">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLu-tt-8kn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RLu-tt-8kn">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17e-rq-PuX">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-t5-wrm">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-t5-wrm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Az1-gy-fxj">
-                                        <rect key="frame" x="166" y="60" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="165.5" y="60" width="43.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="RLu-tt-8kn" firstAttribute="top" secondItem="zWZ-eG-qbb" secondAttribute="top" id="1AS-Lb-ZfO"/>
-                                    <constraint firstItem="nhP-tH-BVe" firstAttribute="top" secondItem="zWZ-eG-qbb" secondAttribute="top" id="6vk-OO-9zr"/>
-                                    <constraint firstAttribute="bottom" secondItem="nhP-tH-BVe" secondAttribute="bottom" id="Bo7-WH-aip"/>
-                                    <constraint firstItem="nhP-tH-BVe" firstAttribute="leading" secondItem="zWZ-eG-qbb" secondAttribute="leading" id="H9L-dt-jbK"/>
-                                    <constraint firstAttribute="trailing" secondItem="RLu-tt-8kn" secondAttribute="trailing" id="QGN-6k-lHa"/>
-                                    <constraint firstItem="RLu-tt-8kn" firstAttribute="leading" secondItem="zWZ-eG-qbb" secondAttribute="leading" id="b3d-e3-IMn"/>
                                     <constraint firstItem="Az1-gy-fxj" firstAttribute="centerX" secondItem="zWZ-eG-qbb" secondAttribute="centerX" id="iPq-9g-0D5"/>
                                     <constraint firstItem="Az1-gy-fxj" firstAttribute="top" secondItem="zWZ-eG-qbb" secondAttribute="top" constant="60" id="nf2-Xg-Cs8"/>
-                                    <constraint firstAttribute="trailing" secondItem="nhP-tH-BVe" secondAttribute="trailing" id="ruY-Xw-UDw"/>
-                                    <constraint firstAttribute="bottom" secondItem="RLu-tt-8kn" secondAttribute="bottom" id="wcK-NZ-lvo"/>
                                     <constraint firstAttribute="height" constant="120" id="x4K-Ex-An1"/>
                                 </constraints>
                             </view>
@@ -629,12 +623,13 @@
                     <connections>
                         <outlet property="avatarImage" destination="Sw1-Vs-mfF" id="qd0-7Z-8rD"/>
                         <outlet property="backgroundImageConstraint" destination="x4K-Ex-An1" id="HG4-cw-vet"/>
+                        <outlet property="blurBackgroundHolder" destination="17e-rq-PuX" id="kVQ-0S-1HA"/>
                         <outlet property="descriptionLabel" destination="oZH-JD-5fT" id="zLf-DJ-nhc"/>
                         <outlet property="followerCountLabel" destination="Gbp-Yg-bz7" id="sax-cA-5TG"/>
                         <outlet property="followingCountLabel" destination="RmD-0b-osA" id="0tP-2W-seb"/>
                         <outlet property="handleLabel" destination="GKa-zQ-bMu" id="4Sm-q8-YLq"/>
-                        <outlet property="headerBlurImageView" destination="cFB-t5-wrm" id="c0t-N3-Z1Y"/>
-                        <outlet property="headerImageView" destination="RLu-tt-8kn" id="JJA-Pw-9it"/>
+                        <outlet property="headerBlurImageView" destination="cFB-t5-wrm" id="pjo-YD-3NH"/>
+                        <outlet property="headerImageView" destination="RLu-tt-8kn" id="Wnq-2o-F46"/>
                         <outlet property="headerLabel" destination="Az1-gy-fxj" id="J4n-fA-S1e"/>
                         <outlet property="headerView" destination="zWZ-eG-qbb" id="gHJ-aS-eq2"/>
                         <outlet property="locationLabel" destination="1jk-4r-6DM" id="uQJ-vS-fLS"/>
@@ -1158,7 +1153,6 @@
         <image name="Twitter_logo_white_48.png" width="48" height="48"/>
         <image name="backButton.png" width="40" height="40"/>
         <image name="like-action.png" width="54" height="72"/>
-        <image name="mbg_Artboard 5.jpg" width="7906" height="5737"/>
         <image name="reply-action_0.png" width="65" height="72"/>
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>

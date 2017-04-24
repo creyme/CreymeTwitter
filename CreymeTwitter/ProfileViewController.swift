@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var profileView : UIView!
     @IBOutlet var avatarImage: UIView!
     @IBOutlet var handleLabel : UILabel!
+    @IBOutlet var blurBackgroundHolder: UIImageView!
     //@IBOutlet var headerBlurImageView: UIImageView!
     //@IBOutlet var headerImageView: UIImageView!
     @IBOutlet weak var backgroundImageConstraint: NSLayoutConstraint!
@@ -51,21 +52,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var isCurrentUser = true
     
-    var headerBlurImageView: UIImageView!
-    var headerImageView: UIImageView!
+    var headerBlurImageView: UIImageView?
+    var headerImageView: UIImageView?
+    //var blurBackgroundHolder: UIImageView?
     
     
     
     // DEFAULT
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-
-        tableView.contentInset = UIEdgeInsetsMake(headerView.frame.height, 0, 0, 0)
-        // HEADER UI:
-        avatarImage.layer.cornerRadius = 6
-        profileImageView.layer.cornerRadius = 4
         
+        headerLabel.isHidden = true
+        tableView.contentInset = UIEdgeInsetsMake(headerView.frame.height, 0, 0, 0)
+
         if isCurrentUser {
             navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
             navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
@@ -80,11 +79,44 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // TABLEVIES SETTINGS
         tableView.delegate = self
         tableView.dataSource = self
-       
-        // Header - Image
-        
-        
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // HEADER UI:
+        avatarImage.layer.cornerRadius = 6
+        profileImageView.layer.cornerRadius = 4
+        
+        
+        // Header - Image
+        self.headerImageView = UIImageView(frame: self.headerView.bounds)
+       
+        self.headerImageView?.contentMode = .scaleAspectFill
+        self.headerView.insertSubview(self.headerImageView!, belowSubview: self.headerLabel)
+        
+        // Header - Blurred Image Holder
+        self.blurBackgroundHolder = UIImageView(frame: self.headerView.bounds)
+        
+        self.blurBackgroundHolder?.contentMode = .scaleAspectFill
+        self.headerView.insertSubview(self.blurBackgroundHolder!, belowSubview: self.headerLabel)
+        
+        // Header - Blurred Image
+        self.headerBlurImageView = UIImageView(frame: self.headerView.bounds)
+        headerBlurImageView?.alpha = 0.0
+            if !isCurrentUser {
+                self.headerImageView?.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+                self.blurBackgroundHolder?.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+                self.headerBlurImageView?.image = self.blurBackgroundHolder?.image?.blurredImage(withRadius: 40, iterations: 20, tintColor: UIColor.clear)
+        }
+ 
+        
+        
+        self.headerBlurImageView?.contentMode = .scaleAspectFill
+        self.headerView.insertSubview(self.headerBlurImageView!, belowSubview: self.headerLabel)
+ 
+        
+        self.headerView.clipsToBounds = true
+ 
     }
     
 
@@ -93,41 +125,37 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func loadCurrentUser() {
         
         TwitterClient.sharedInstance?.currentAccount(success: { (currentUser) in
+            
+            
             self.currentUser = currentUser
-            if currentUser.profileUrl != nil {
-                self.profileImageView.setImageWith(URL(string: currentUser.profileUrl!)!)
-            } else {
-                self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
-            }
-            if currentUser.backgroundImageUrl != nil {
-                self.headerImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
-                self.headerBlurImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+            
+          
+                    if currentUser.profileUrl != nil {
 
-            } else {
-                self.headerImageView.image = UIImage(named: "Twitter_logo_white_48.png")
-                self.headerBlurImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+                        self.profileImageView.setImageWith(URL(string: currentUser.profileUrl!)!)
+                    } else {
+                        self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+                    }
+            
+                    if currentUser.backgroundImageUrl != nil {
+                        self.blurBackgroundHolder?.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+                        self.headerBlurImageView?.image = self.blurBackgroundHolder?.image?.blurredImage(withRadius: 40, iterations: 20, tintColor: UIColor.clear)
+
+                    } else {
+                        self.headerImageView?.image = UIImage(named: "Twitter_logo_white_48.png")
+                
+                        self.headerBlurImageView?.image = UIImage(named: "Twitter_logo_white_48.png")?.blurredImage(withRadius: 40, iterations: 20, tintColor: UIColor.clear)
             }
-            
-            self.headerImageView = UIImageView(frame: self.headerView.bounds)
-            //headerImageView.image = UIImage(named: "mbg_Artboard 5.jpg")
-            self.headerImageView.contentMode = .scaleAspectFill
-            self.headerView.insertSubview(self.headerImageView, belowSubview: self.headerLabel)
-            
-            // Header - Blurred Image
-            self.headerBlurImageView = UIImageView(frame: self.headerView.bounds)
-            //headerBlurImageView?.blurredImage(withRadius: 30, iterations: 20, tintColor: UIColor.clear)
-            self.headerBlurImageView?.contentMode = .scaleAspectFill
-            self.headerView.insertSubview(self.headerBlurImageView, belowSubview: self.headerLabel)
-            
             
             self.headerView.clipsToBounds = true
             
             self.userFullNameLabel.text = currentUser.name
+            self.headerLabel.text = currentUser.name
             self.userScreenNameLabel.text = "@\(currentUser.screenname ?? String())"
             self.descriptionLabel.text = currentUser.tagline
             self.locationLabel.text = currentUser.location
-            self.followerCountLabel.text = String(describing: currentUser.followersCount) 
-            self.followingCountLabel.text = String(describing: currentUser.followingCount) 
+            self.followerCountLabel.text = "\(currentUser.followersCount)"
+            self.followingCountLabel.text = "\(currentUser.followingCount)"
             
 
         }, failure: { (error) in
@@ -141,9 +169,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
+   
     
     
     
@@ -156,19 +182,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
         }
         if tweet.backgroundImageUrl != nil {
-            self.headerImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
-            self.headerBlurImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+            self.headerImageView?.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+            
+            self.blurBackgroundHolder?.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+            
+            self.headerBlurImageView?.image = self.blurBackgroundHolder?.image?.blurredImage(withRadius: 40, iterations: 20, tintColor: UIColor.clear)
+            
         } else {
-            self.headerImageView.image = UIImage(named: "Twitter_logo_white_48.png")
-            self.headerBlurImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            self.headerImageView?.image = UIImage(named: "Twitter_logo_white_48.png")
+            self.blurBackgroundHolder?.image = UIImage(named: "Twitter_logo_white_48.png")
+            self.headerBlurImageView?.image = UIImage(named: "Twitter_logo_white_48.png")?.blurredImage(withRadius: 40, iterations: 20, tintColor: UIColor.clear)
         }
         
         userFullNameLabel.text = tweet.ownerName
+        headerLabel.text = tweet.ownerName
         userScreenNameLabel.text = "@\(tweet.ownerScreenName ?? String())"
         descriptionLabel.text = tweet.tagline
         locationLabel.text = tweet.location
-        followerCountLabel.text = String(describing: tweet.followersCount)
-        followingCountLabel.text = String(describing: tweet.followingCount)
+        followerCountLabel.text = "\(tweet.followersCount )"
+        followingCountLabel.text = "\(tweet.followingCount )"
         
         
         
@@ -274,6 +306,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Apply Transformations
         headerView.layer.transform = headerTransform
         avatarImage.layer.transform = avatarTransform
+        
         
         
         
