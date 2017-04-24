@@ -12,6 +12,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentUserImage: UIImageView!
+     @IBOutlet weak var currentUserName: UILabel!
+    @IBOutlet weak var currentUserScreenName: UILabel!
+    
+    
     
     // VARIABLES
     private var profileNavigationController: UIViewController!
@@ -26,6 +31,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentUserImage.layer.cornerRadius = 4
+        if User.currentUser?.profileUrl != nil {
+            self.currentUserImage.setImageWith(URL(string: (User.currentUser?.profileUrl!)!)!)
+        } else {
+            currentUserImage.image = UIImage(named: "Twitter_logo_white_48.png")
+        }
+        currentUserName.text = User.currentUser?.name
+        currentUserScreenName.text = User.currentUser?.screenname
         
         // TABLEVIEW SETTINGS
         tableView.delegate = self
