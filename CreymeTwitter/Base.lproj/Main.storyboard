@@ -576,11 +576,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetsCell" rowHeight="100" id="r0B-Da-DEY" customClass="TweetsCell" customModule="CreymeTwitter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tweeterProfileCell" rowHeight="100" id="r0B-Da-DEY" customClass="tweeterProfileCell" customModule="CreymeTwitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="196" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0B-Da-DEY" id="ceJ-xU-1Ed">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Retweeted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydE-XW-SbG">
@@ -701,38 +701,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="likeCountIconView" destination="NNo-dI-Ri7" id="NrB-pb-p8x"/>
-                                            <outlet property="likeCountLabel" destination="ka9-IL-Pp4" id="chd-jh-oWA"/>
-                                            <outlet property="profileImageTopConstraint" destination="UIa-ie-arn" id="KMR-Rz-N6r"/>
-                                            <outlet property="profileImageView" destination="jEc-uK-eBc" id="1iR-OR-Uob"/>
-                                            <outlet property="replyCountIconView" destination="NlH-Vr-LPc" id="ckX-1c-jvU"/>
-                                            <outlet property="replyCountLabel" destination="6zu-VL-zUP" id="qdo-IK-NoG"/>
-                                            <outlet property="retweetCountIconView" destination="PQq-Oe-fgy" id="eaY-2y-TaF"/>
-                                            <outlet property="retweetCountLabel" destination="Jdz-Ff-ISK" id="t3h-Z7-QRN"/>
-                                            <outlet property="retweetedIconView" destination="Cdr-xq-ZBs" id="hT3-rJ-GkV"/>
-                                            <outlet property="retweetedNameLabel" destination="ydE-XW-SbG" id="WRu-bX-YVq"/>
-                                            <outlet property="tweetDateLabel" destination="tGQ-yS-9zk" id="3en-8y-TGy"/>
-                                            <outlet property="tweetTextLabel" destination="JCA-8c-yz2" id="QBV-96-g7C"/>
-                                            <outlet property="userFullNameLabel" destination="Xag-On-YGG" id="GAw-Zr-xJw"/>
-                                            <outlet property="userScreenNameLabel" destination="iOk-1U-N5j" id="FPt-OE-ReY"/>
+                                            <outlet property="likeCountIconView" destination="NNo-dI-Ri7" id="zdG-gf-aFd"/>
+                                            <outlet property="likeCountLabel" destination="ka9-IL-Pp4" id="Jbs-zZ-Bwp"/>
+                                            <outlet property="profileImageTopConstraint" destination="mv0-Q2-BJ2" id="3g9-QH-rtc"/>
+                                            <outlet property="profileImageView" destination="jEc-uK-eBc" id="DEs-LM-PK9"/>
+                                            <outlet property="replyCountIconView" destination="NlH-Vr-LPc" id="QJ6-7V-R3L"/>
+                                            <outlet property="replyCountLabel" destination="6zu-VL-zUP" id="ka5-kg-9HQ"/>
+                                            <outlet property="retweetCountIconView" destination="PQq-Oe-fgy" id="tHw-WX-TWX"/>
+                                            <outlet property="retweetCountLabel" destination="Jdz-Ff-ISK" id="8y8-mC-oAX"/>
+                                            <outlet property="retweetedIconView" destination="Cdr-xq-ZBs" id="a78-FW-Eat"/>
+                                            <outlet property="retweetedNameLabel" destination="ydE-XW-SbG" id="Kn3-qA-KzA"/>
+                                            <outlet property="tweetDateLabel" destination="tGQ-yS-9zk" id="DA4-BB-j2l"/>
+                                            <outlet property="tweetTextLabel" destination="JCA-8c-yz2" id="bV8-d3-fS4"/>
+                                            <outlet property="userFullNameLabel" destination="Xag-On-YGG" id="tlu-BT-rDz"/>
+                                            <outlet property="userScreenNameLabel" destination="iOk-1U-N5j" id="ynv-FX-QyI"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tweeterProfileCell" id="PRl-o1-mbI" customClass="tweeterProfileCell" customModule="CreymeTwitter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="296" width="375" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRl-o1-mbI" id="6fG-a5-5pf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eam-Pf-0QZ">
-                                                    <rect key="frame" x="53" y="65" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1298,7 +1281,7 @@
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rGB-Lg-DIe"/>
         <segue reference="hbg-nF-JBw"/>
+        <segue reference="XXe-n2-nuj"/>
     </inferredMetricsTieBreakers>
 </document>

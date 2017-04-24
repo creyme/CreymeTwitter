@@ -47,8 +47,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     // HEADER VARIABLES
+    var tweets: [Tweet]!
     var tweet: Tweet!
     var currentUser: User!
+    var screenName: String!
     
     var isCurrentUser = true
     
@@ -70,15 +72,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
             
             loadCurrentUser()
+            screenName = User.currentUser?.screenname
         } else {
             navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
             loadTweetOwner()
+            
         }
         
         
         // TABLEVIES SETTINGS
         tableView.delegate = self
         tableView.dataSource = self
+        
+        loadTweets()
 
     }
     
@@ -167,12 +173,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         }
     
-    
-    
-   
-    
-    
-    
+
     func loadTweetOwner() {
         print("loading tweet owner profile")
         
@@ -216,15 +217,31 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // LOAD TWEETS
+    func loadTweets() {
+        TwitterClient.sharedInstance?.userTweets(screenName: screenName, success: { (tweets) in
+            self.tweets = tweets
+            self.tableView.reloadData()
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+    }
+    
     
     // TABLEVIEW FUNCTIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if self.tweets != nil {
+            return tweets.count
+        } else {
+            return 0
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweeterProfileCell", for: indexPath) as! tweeterProfileCell
+        cell.tweet = self.tweets[indexPath.row]
         
         return cell
     }

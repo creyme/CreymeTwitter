@@ -283,6 +283,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("tweetOwnerProfilesSegue")
                 vc.tweet = tweeterProfile
                 vc.isCurrentUser = false
+                vc.screenName = tweeterProfile.ownerScreenName!
+                
 
         }
      }
