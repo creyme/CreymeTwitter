@@ -14,6 +14,7 @@
 		4C2490D81EAC91AD00BCD89D /* mbg_Artboard 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C2490D71EAC91AD00BCD89D /* mbg_Artboard 5.jpg */; };
 		4C2490DA1EAC9C6800BCD89D /* LocationTweetIcon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2490D91EAC9C6800BCD89D /* LocationTweetIcon@1x.png */; };
 		4C2490DE1EAD3A1F00BCD89D /* backButton@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2490DD1EAD3A1F00BCD89D /* backButton@1x.png */; };
+		4C2490E61EAD775300BCD89D /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2490E51EAD775300BCD89D /* FXBlurView.m */; };
 		4C2AA1BA1EAB401400838087 /* NewTweetIcon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2AA1B91EAB401400838087 /* NewTweetIcon@1x.png */; };
 		4C2AA1C01EAB59A200838087 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AA1BF1EAB59A200838087 /* HamburgerViewController.swift */; };
 		4C2AA1C21EAB60C300838087 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2AA1C11EAB60C300838087 /* MenuViewController.swift */; };
@@ -30,6 +31,7 @@
 		4C72313B1EA1D96E00A4D2E1 /* reply-action_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C72313A1EA1D96E00A4D2E1 /* reply-action_0.png */; };
 		4C72313D1EA1D97800A4D2E1 /* retweet-action.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C72313C1EA1D97800A4D2E1 /* retweet-action.png */; };
 		4C7231401EA1DCBC00A4D2E1 /* TweetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72313F1EA1DCBC00A4D2E1 /* TweetsCell.swift */; };
+		4CA75CDC1EAD990B0051746B /* tweeterProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA75CDB1EAD990B0051746B /* tweeterProfileCell.swift */; };
 		4CA998C71EA235D20055A4E3 /* Twitter_Logo_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA998C61EA235D20055A4E3 /* Twitter_Logo_Blue.png */; };
 		4CA998CB1EA237D30055A4E3 /* Twitter_Logo_White_On_Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA998CA1EA237D30055A4E3 /* Twitter_Logo_White_On_Image.png */; };
 		4CA998CD1EA2408B0055A4E3 /* retweet-action-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA998CC1EA2408B0055A4E3 /* retweet-action-on.png */; };
@@ -54,6 +56,9 @@
 		4C2490D71EAC91AD00BCD89D /* mbg_Artboard 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mbg_Artboard 5.jpg"; sourceTree = "<group>"; };
 		4C2490D91EAC9C6800BCD89D /* LocationTweetIcon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationTweetIcon@1x.png"; sourceTree = "<group>"; };
 		4C2490DD1EAD3A1F00BCD89D /* backButton@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@1x.png"; sourceTree = "<group>"; };
+		4C2490E31EAD775200BCD89D /* CreymeTwitter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CreymeTwitter-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C2490E41EAD775300BCD89D /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		4C2490E51EAD775300BCD89D /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		4C2AA1B91EAB401400838087 /* NewTweetIcon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewTweetIcon@1x.png"; sourceTree = "<group>"; };
 		4C2AA1BF1EAB59A200838087 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		4C2AA1C11EAB60C300838087 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		4C72313A1EA1D96E00A4D2E1 /* reply-action_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply-action_0.png"; sourceTree = "<group>"; };
 		4C72313C1EA1D97800A4D2E1 /* retweet-action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-action.png"; sourceTree = "<group>"; };
 		4C72313F1EA1DCBC00A4D2E1 /* TweetsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsCell.swift; sourceTree = "<group>"; };
+		4CA75CDB1EAD990B0051746B /* tweeterProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweeterProfileCell.swift; sourceTree = "<group>"; };
 		4CA998C61EA235D20055A4E3 /* Twitter_Logo_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_Logo_Blue.png; sourceTree = "<group>"; };
 		4CA998CA1EA237D30055A4E3 /* Twitter_Logo_White_On_Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_Logo_White_On_Image.png; sourceTree = "<group>"; };
 		4CA998CC1EA2408B0055A4E3 /* retweet-action-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-action-on.png"; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 			children = (
 				4C72313F1EA1DCBC00A4D2E1 /* TweetsCell.swift */,
 				4C2AA1C31EAB662200838087 /* MenuCell.swift */,
+				4CA75CDB1EAD990B0051746B /* tweeterProfileCell.swift */,
 			);
 			name = CELLS;
 			sourceTree = "<group>";
@@ -181,6 +188,8 @@
 		4CC0DEBC1E9F3A2900455DFE /* CreymeTwitter */ = {
 			isa = PBXGroup;
 			children = (
+				4C2490E41EAD775300BCD89D /* FXBlurView.h */,
+				4C2490E51EAD775300BCD89D /* FXBlurView.m */,
 				4C7231331EA1D90200A4D2E1 /* IMAGES */,
 				4C038B921E9FFF490033FBF2 /* MODELS */,
 				4C038B911E9FFF410033FBF2 /* API */,
@@ -190,6 +199,7 @@
 				4CC0DEC61E9F3A2900455DFE /* LaunchScreen.storyboard */,
 				4CC0DEC91E9F3A2900455DFE /* Info.plist */,
 				4C4D8ABA1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift */,
+				4C2490E31EAD775200BCD89D /* CreymeTwitter-Bridging-Header.h */,
 			);
 			path = CreymeTwitter;
 			sourceTree = "<group>";
@@ -257,6 +267,7 @@
 					4CC0DEB91E9F3A2900455DFE = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = NARHJ4JYLS;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -363,11 +374,13 @@
 			files = (
 				4C2AA1C41EAB662200838087 /* MenuCell.swift in Sources */,
 				4C2AA1C01EAB59A200838087 /* HamburgerViewController.swift in Sources */,
+				4C2490E61EAD775300BCD89D /* FXBlurView.m in Sources */,
 				4C038B941E9FFF870033FBF2 /* User.swift in Sources */,
 				4C2AA1C81EAB698300838087 /* MentionsViewController.swift in Sources */,
 				4C7231401EA1DCBC00A4D2E1 /* TweetsCell.swift in Sources */,
 				4C038B961E9FFFA70033FBF2 /* Tweet.swift in Sources */,
 				4CC0DEBE1E9F3A2900455DFE /* AppDelegate.swift in Sources */,
+				4CA75CDC1EAD990B0051746B /* tweeterProfileCell.swift in Sources */,
 				4C038B9A1EA052880033FBF2 /* TweetsViewController.swift in Sources */,
 				4C4D8ABB1EA9895D0025B3F2 /* InfiniteScrollActivityView.swift in Sources */,
 				4C2AA1C21EAB60C300838087 /* MenuViewController.swift in Sources */,
@@ -501,11 +514,14 @@
 			baseConfigurationReference = E5457B9E206532F9B590067D /* Pods-CreymeTwitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NARHJ4JYLS;
 				INFOPLIST_FILE = CreymeTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creyme.CreymeTwitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CreymeTwitter/CreymeTwitter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -515,11 +531,13 @@
 			baseConfigurationReference = A210D691D0DDCFF7C5A8C557 /* Pods-CreymeTwitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NARHJ4JYLS;
 				INFOPLIST_FILE = CreymeTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creyme.CreymeTwitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CreymeTwitter/CreymeTwitter-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

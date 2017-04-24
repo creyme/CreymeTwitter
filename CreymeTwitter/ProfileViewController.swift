@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+let offset_HeaderStop:CGFloat = 120 - 64  // At this offset the Header stops its transformations
+let distance_W_LabelHeader:CGFloat = 30.0 // The distance between the top of the screen and the top of the White Label
+
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
     // HEADER OUTLETS: Details
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -25,7 +28,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet{
+            tableView.estimatedRowHeight = 100
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
+    }
+
+    @IBOutlet var headerView : UIView!
+    @IBOutlet var headerLabel : UILabel!
+    @IBOutlet var profileView : UIView!
+    @IBOutlet var avatarImage: UIView!
+    @IBOutlet var handleLabel : UILabel!
+    //@IBOutlet var headerBlurImageView: UIImageView!
+    //@IBOutlet var headerImageView: UIImageView!
+    @IBOutlet weak var backgroundImageConstraint: NSLayoutConstraint!
     
     
     // HEADER VARIABLES
@@ -34,14 +51,19 @@ class ProfileViewController: UIViewController {
     
     var isCurrentUser = true
     
+    var headerBlurImageView: UIImageView!
+    var headerImageView: UIImageView!
+    
+    
     
     // DEFAULT
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        
+
+        tableView.contentInset = UIEdgeInsetsMake(headerView.frame.height, 0, 0, 0)
         // HEADER UI:
-        bgImageViewView.layer.cornerRadius = 6
+        avatarImage.layer.cornerRadius = 6
         profileImageView.layer.cornerRadius = 4
         
         if isCurrentUser {
@@ -54,7 +76,18 @@ class ProfileViewController: UIViewController {
             loadTweetOwner()
         }
         
+        
+        // TABLEVIES SETTINGS
+        tableView.delegate = self
+        tableView.dataSource = self
+       
+        // Header - Image
+        
+        
+
     }
+    
+
     
     // CURRENT USER FUNCTIONS
     func loadCurrentUser() {
@@ -67,10 +100,27 @@ class ProfileViewController: UIViewController {
                 self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
             }
             if currentUser.backgroundImageUrl != nil {
-                self.backgroundImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+                self.headerImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+                self.headerBlurImageView.setImageWith(URL(string: currentUser.backgroundImageUrl!)!)
+
             } else {
-                self.backgroundImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+                self.headerImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+                self.headerBlurImageView.image = UIImage(named: "Twitter_logo_white_48.png")
             }
+            
+            self.headerImageView = UIImageView(frame: self.headerView.bounds)
+            //headerImageView.image = UIImage(named: "mbg_Artboard 5.jpg")
+            self.headerImageView.contentMode = .scaleAspectFill
+            self.headerView.insertSubview(self.headerImageView, belowSubview: self.headerLabel)
+            
+            // Header - Blurred Image
+            self.headerBlurImageView = UIImageView(frame: self.headerView.bounds)
+            //headerBlurImageView?.blurredImage(withRadius: 30, iterations: 20, tintColor: UIColor.clear)
+            self.headerBlurImageView?.contentMode = .scaleAspectFill
+            self.headerView.insertSubview(self.headerBlurImageView, belowSubview: self.headerLabel)
+            
+            
+            self.headerView.clipsToBounds = true
             
             self.userFullNameLabel.text = currentUser.name
             self.userScreenNameLabel.text = "@\(currentUser.screenname ?? String())"
@@ -83,7 +133,19 @@ class ProfileViewController: UIViewController {
         }, failure: { (error) in
             print(error.localizedDescription)
         })
+        
+        
+        
+        
         }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    
     
     func loadTweetOwner() {
         print("loading tweet owner profile")
@@ -94,9 +156,11 @@ class ProfileViewController: UIViewController {
             self.profileImageView.image = UIImage(named: "Twitter_logo_white_48.png")
         }
         if tweet.backgroundImageUrl != nil {
-            self.backgroundImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+            self.headerImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
+            self.headerBlurImageView.setImageWith(URL(string: tweet.backgroundImageUrl!)!)
         } else {
-            self.backgroundImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            self.headerImageView.image = UIImage(named: "Twitter_logo_white_48.png")
+            self.headerBlurImageView.image = UIImage(named: "Twitter_logo_white_48.png")
         }
         
         userFullNameLabel.text = tweet.ownerName
@@ -121,6 +185,104 @@ class ProfileViewController: UIViewController {
     }
     
 
+    
+    // TABLEVIEW FUNCTIONS
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweeterProfileCell", for: indexPath) as! tweeterProfileCell
+        
+        return cell
+    }
+    
+    
+    
+    // MARK: Scroll view delegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offset = scrollView.contentOffset.y + headerView.bounds.height
+        
+        var avatarTransform = CATransform3DIdentity
+        var headerTransform = CATransform3DIdentity
+        
+        // PULL DOWN -----------------
+        
+        if offset < 0 {
+            
+            let headerScaleFactor:CGFloat = -(offset) / headerView.bounds.height
+            let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor)) - headerView.bounds.height)/2
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+            
+            
+            // Hide views if scrolled super fast
+            headerView.layer.zPosition = 0
+            headerLabel.isHidden = true
+            
+        }
+            
+            // SCROLL UP/DOWN ------------
+            
+        else {
+            
+            // Header -----------
+            
+            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -offset), 0)
+            
+            //  ------------ Label
+            
+            headerLabel.isHidden = false
+            let alignToNameLabel = -offset + handleLabel.frame.origin.y + headerView.frame.height + offset_HeaderStop
+            
+            headerLabel.frame.origin = CGPoint(x: headerLabel.frame.origin.x, y: max(alignToNameLabel, distance_W_LabelHeader + offset_HeaderStop))
+            
+            
+            //  ------------ Blur
+            
+            headerBlurImageView?.alpha = min (1.0, (offset - alignToNameLabel)/distance_W_LabelHeader)
+            
+            // Avatar -----------
+            
+            let avatarScaleFactor = (min(offset_HeaderStop, offset)) / avatarImage.bounds.height / 9.4 // Slow down the animation
+            print(avatarScaleFactor)
+            
+            let avatarSizeVariation = ((avatarImage.bounds.height * (1.0 + avatarScaleFactor)) - avatarImage.bounds.height) / 2.0
+            print(avatarSizeVariation)
+            
+            avatarTransform = CATransform3DTranslate(avatarTransform, 0, avatarSizeVariation, 0)
+            avatarTransform = CATransform3DScale(avatarTransform, 1.0 - avatarScaleFactor, 1.0 - avatarScaleFactor, 0)
+            
+            if offset <= offset_HeaderStop {
+                
+                if avatarImage.layer.zPosition < headerView.layer.zPosition{
+                    headerView.layer.zPosition = 0
+                }
+                
+                
+            }else {
+                if avatarImage.layer.zPosition >= headerView.layer.zPosition{
+                    headerView.layer.zPosition = 2
+                }
+                
+            }
+            
+        }
+        
+        // Apply Transformations
+        headerView.layer.transform = headerTransform
+        avatarImage.layer.transform = avatarTransform
+        
+        
+        
+
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -132,3 +294,5 @@ class ProfileViewController: UIViewController {
     */
 
 }
+}
+
