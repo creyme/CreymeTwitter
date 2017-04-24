@@ -28,13 +28,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView! {
-        didSet{
-            tableView.estimatedRowHeight = 100
-            tableView.rowHeight = UITableViewAutomaticDimension
-        }
-    }
-
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView : UIView!
     @IBOutlet var headerLabel : UILabel!
     @IBOutlet var profileView : UIView!
@@ -85,6 +79,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         
         loadTweets()
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
 
     }
     
