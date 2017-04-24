@@ -77,6 +77,8 @@ The following **optional** features are implemented:
    - [ ] Tap account to switch to
    - [ ] Include a plus button to Add an Account
    - [ ] Swipe to delete an account
+   The following **additional** features are implemented:
+- [x] Pulling up the profile page blur and resize the profile image. Also becomes the navigation bar like in Twitter app. Shows profile owner in the navigation bar.
 
 
 ## Video Walkthrough
